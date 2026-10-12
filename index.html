@@ -10,23 +10,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #040810;
-      --bg-surface: #0a1324;
-      --bg-card: rgba(14, 26, 47, 0.75);
-      --border-frost: rgba(56, 189, 248, 0.2);
-      --gold: #f59e0b;
-      --gold-light: #fde68a;
-      --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-      --cyan: #38bdf8;
-      --aurora: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #8b5cf6 100%);
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
+      --bg-page: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f1f5f9;
+      --border-subtle: #e2e8f0;
+      --border-frost: rgba(15, 23, 42, 0.08);
+      --text-main: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748b;
+      --ice: #0284c7;
+      --ice-dark: #0369a1;
+      --ice-light: #e0f2fe;
+      --ice-gradient: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      --gold: #b45309;
+      --gold-light: #fef3c7;
+      --gold-gradient: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      --emerald: #059669;
+      --emerald-light: #ecfdf5;
+      --emerald-border: #86efac;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: var(--bg-dark);
-      color: var(--text);
+      background: var(--bg-page);
+      color: var(--text-body);
       font-family: 'Plus Jakarta Sans', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
@@ -40,8 +48,8 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .aurora-text {
-      background: var(--aurora);
+    .ice-text {
+      background: var(--ice-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -51,72 +59,83 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(4, 8, 16, 0.88);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 14px 32px;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      padding: 12px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+      transition: all 0.25s ease;
     }
     .brand-logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
-      color: #ffffff;
+      color: var(--text-main);
     }
     .brand-logo .monogram {
-      width: 38px;
-      height: 38px;
-      border: 1.5px solid var(--gold);
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid var(--ice);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'Cinzel', serif;
       font-weight: 800;
-      color: var(--gold);
-      font-size: 13pt;
-      box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+      color: var(--ice);
+      font-size: 12pt;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
+      flex-shrink: 0;
     }
     .brand-logo .name {
       font-family: 'Cinzel', serif;
       font-weight: 800;
-      font-size: 14pt;
-      letter-spacing: 0.25em;
+      font-size: 13pt;
+      letter-spacing: 0.22em;
+      color: var(--text-main);
+      white-space: nowrap;
     }
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
     }
     .btn-download {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--gold-gradient);
-      color: #050b14;
+      background: var(--ice-gradient);
+      color: #ffffff;
       font-weight: 700;
       font-size: 8.5pt;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 10px 22px;
+      padding: 10px 20px;
       border-radius: 30px;
       text-decoration: none;
-      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+      transition: all 0.25s ease;
       border: none;
       cursor: pointer;
+      white-space: nowrap;
     }
     .btn-download:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(245, 158, 11, 0.55);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      background: linear-gradient(135deg, #0284c7 0%, #02649b 100%);
+    }
+    .btn-download-nav {
+      padding: 8px 18px;
+      font-size: 8pt;
     }
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 22px;
       list-style: none;
     }
     .nav-links a {
@@ -124,35 +143,36 @@
       text-decoration: none;
       font-size: 9pt;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       transition: color 0.2s;
     }
     .nav-links a:hover {
-      color: #ffffff;
+      color: var(--ice);
     }
 
     /* Hero Section */
     .hero {
       position: relative;
-      min-height: 88vh;
+      min-height: 86vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 120px 24px 60px;
       overflow: hidden;
+      background: #0b1526;
     }
     .hero-bg {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover;
-      filter: brightness(0.7);
+      filter: brightness(0.75);
       z-index: 1;
     }
     .hero-overlay {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 50% 30%, rgba(5,11,20,0.3) 0%, rgba(4,8,16,0.92) 80%);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.3) 40%, rgba(15, 23, 42, 0.85) 90%, #0f172a 100%);
       z-index: 2;
     }
     .hero-content {
@@ -166,29 +186,30 @@
       gap: 8px;
       padding: 6px 16px;
       border-radius: 30px;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: var(--cyan);
+      background: rgba(2, 132, 199, 0.3);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #bae6fd;
       font-size: 8.5pt;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       margin-bottom: 20px;
       backdrop-filter: blur(8px);
     }
     .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
       line-height: 1.08;
       font-weight: 900;
       letter-spacing: 0.03em;
       margin-bottom: 16px;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      color: #ffffff;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.6);
     }
     .hero-sub {
-      font-size: clamp(0.95rem, 2vw, 1.25rem);
-      letter-spacing: 0.25em;
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #cbd5e1;
+      color: #e2e8f0;
       margin-bottom: 32px;
       font-weight: 600;
     }
@@ -196,18 +217,17 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      background: rgba(10, 19, 36, 0.75);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
       border-radius: 12px;
-      padding: 20px;
+      padding: 22px 20px;
       margin-top: 36px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
     .stat-item .val {
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 800;
-      color: #ffffff;
+      color: #0f172a;
     }
     .stat-item .lbl {
       font-size: 0.72rem;
@@ -215,6 +235,11 @@
       letter-spacing: 0.1em;
       color: var(--text-muted);
       margin-top: 2px;
+      font-weight: 600;
+    }
+
+    section[id] {
+      scroll-margin-top: 80px;
     }
 
     .container {
@@ -231,14 +256,14 @@
       font-size: 8pt;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--ice);
       font-weight: 700;
       margin-bottom: 8px;
     }
     .section-title {
       font-size: 2.1rem;
       font-weight: 800;
-      color: #ffffff;
+      color: var(--text-main);
       letter-spacing: 0.02em;
     }
     .section-desc {
@@ -250,16 +275,16 @@
 
     /* PDF Viewer */
     .viewer-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-frost);
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
     }
     .viewer-toolbar {
       padding: 16px 24px;
-      background: rgba(14, 26, 47, 0.9);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -269,32 +294,32 @@
     .viewer-nav {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
     .btn-nav {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      padding: 8px 16px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+      padding: 8px 18px;
       border-radius: 6px;
       font-size: 8.5pt;
       font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.2s;
     }
     .btn-nav:hover {
-      background: rgba(56, 189, 248, 0.2);
-      border-color: var(--cyan);
+      background: #e2e8f0;
+      border-color: #94a3b8;
     }
     .page-indicator {
       font-size: 9pt;
-      font-weight: 700;
-      color: var(--gold);
+      font-weight: 800;
+      color: #0f172a;
       letter-spacing: 0.1em;
     }
     .viewer-stage {
       padding: 35px;
-      background: #02050a;
+      background: #edf2f7;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -303,22 +328,26 @@
     .brochure-preview-img {
       max-width: 100%;
       max-height: 85vh;
-      border-radius: 6px;
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8);
+      border-radius: 4px;
+      box-shadow: 0 15px 45px rgba(15, 23, 42, 0.14);
       cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .brochure-preview-img:hover {
+      transform: scale(1.005);
     }
 
     .thumb-strip {
       display: flex;
       gap: 12px;
       padding: 16px 24px;
-      background: #050c18;
+      background: #f8fafc;
       overflow-x: auto;
       scrollbar-width: thin;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid var(--border-subtle);
     }
     .thumb-strip::-webkit-scrollbar { height: 6px; }
-    .thumb-strip::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.3); border-radius: 3px; }
+    .thumb-strip::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
     .thumb-item {
       flex: 0 0 72px;
       height: 102px;
@@ -326,11 +355,12 @@
       overflow: hidden;
       border: 2px solid transparent;
       cursor: pointer;
-      opacity: 0.55;
+      opacity: 0.6;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
       transition: all 0.2s;
     }
     .thumb-item.active, .thumb-item:hover {
-      border-color: var(--gold);
+      border-color: var(--ice);
       opacity: 1;
       transform: translateY(-2px);
     }
@@ -347,17 +377,18 @@
       gap: 18px;
     }
     .route-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-frost);
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
       border-radius: 12px;
       padding: 22px;
       position: relative;
-      transition: all 0.3s;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+      transition: all 0.25s ease;
     }
     .route-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--cyan);
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.15);
+      transform: translateY(-3px);
+      border-color: var(--ice);
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.1);
     }
     .route-step-badge {
       display: inline-flex;
@@ -365,15 +396,15 @@
       justify-content: center;
       width: 28px; height: 28px;
       border-radius: 50%;
-      background: var(--gold-gradient);
-      color: #050b14;
+      background: var(--ice);
+      color: #ffffff;
       font-weight: 800;
       font-size: 9pt;
       margin-bottom: 12px;
     }
 
     /* ========================================================
-       LUXURY BOARDING PASS STYLES (CHAMPAGNE / IVORY)
+       LUXURY BOARDING PASS STYLES (PHYSICAL PASS ON NORDIC CANVAS)
        ======================================================== */
     .boarding-passes-web {
       display: flex;
@@ -383,10 +414,10 @@
     }
     .luxury-bp-web {
       position: relative;
-      background: linear-gradient(135deg, #fffdf8 0%, #faf3e4 50%, #f3e5cd 100%);
+      background: linear-gradient(135deg, #fffdf8 0%, #faf6ec 50%, #f4ede0 100%);
       border: 1.5px solid #d4af37;
       border-radius: 16px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
       display: grid;
       grid-template-columns: 1fr 280px;
       overflow: hidden;
@@ -396,19 +427,19 @@
       position: absolute;
       width: 24px;
       height: 24px;
-      background-color: var(--bg-dark);
+      background-color: var(--bg-page);
       border-radius: 50%;
       z-index: 10;
     }
     .bp-notch-web-top {
       top: -12px;
       right: 268px;
-      box-shadow: inset 0 -3px 4px rgba(0,0,0,0.5);
+      box-shadow: inset 0 -2px 3px rgba(15, 23, 42, 0.2);
     }
     .bp-notch-web-bottom {
       bottom: -12px;
       right: 268px;
-      box-shadow: inset 0 3px 4px rgba(0,0,0,0.5);
+      box-shadow: inset 0 2px 3px rgba(15, 23, 42, 0.2);
     }
     .bp-perforation-web {
       position: absolute;
@@ -416,7 +447,7 @@
       bottom: 12px;
       right: 280px;
       width: 0;
-      border-right: 2px dashed #c4b39b;
+      border-right: 2px dashed #cbd5e1;
       z-index: 5;
     }
     .bp-main-web {
@@ -430,7 +461,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(180, 83, 9, 0.25);
+      border-bottom: 1px solid rgba(180, 83, 9, 0.2);
       padding-bottom: 12px;
     }
     .bp-brand-web {
@@ -478,7 +509,7 @@
       font-size: 0.75rem;
       font-weight: 700;
       color: #475569;
-      background: rgba(0,0,0,0.06);
+      background: rgba(0,0,0,0.05);
       border: 1px solid #d1c4b2;
       padding: 4px 10px;
       border-radius: 6px;
@@ -514,6 +545,7 @@
     }
     .bp-date-web.overnight {
       color: #dc2626;
+      font-weight: 800;
     }
     .bp-code-web {
       font-family: 'Cinzel', serif;
@@ -577,7 +609,7 @@
       color: #64748b;
     }
     .bp-transfer-web {
-      background: rgba(2, 132, 199, 0.08);
+      background: rgba(2, 132, 199, 0.06);
       border: 1px solid rgba(2, 132, 199, 0.25);
       border-radius: 8px;
       padding: 8px 14px;
@@ -609,30 +641,14 @@
       padding: 2px 0;
     }
     
-    @media (max-width: 900px) {
-      .luxury-bp-web {
-        grid-template-columns: 1fr;
-      }
-      .bp-notch-web, .bp-perforation-web {
-        display: none;
-      }
-      .bp-leg-web {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        text-align: center;
-      }
-      .bp-station-web.right {
-        text-align: center;
-      }
-    }
-
     /* Pricing */
     .calc-card {
-      background: linear-gradient(135deg, rgba(14, 28, 52, 0.9) 0%, rgba(6, 13, 24, 0.95) 100%);
-      border: 1.5px solid var(--gold);
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
       border-radius: 16px;
       padding: 32px;
       margin-top: 24px;
+      box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
     }
     .pricing-hero-nums {
       display: grid;
@@ -640,23 +656,347 @@
       gap: 24px;
       text-align: center;
       padding: 24px;
-      background: rgba(0, 0, 0, 0.25);
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
       border-radius: 12px;
     }
 
+    /* Mobile Pricing Cards vs Desktop Table */
+    .pricing-table-desktop {
+      display: block;
+      margin-top: 28px;
+      overflow-x: auto;
+    }
+    .pricing-cards-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .pricing-card-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 14px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pci-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .pci-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.3;
+    }
+    .pci-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .pci-price.ice { background: #e0f2fe; color: #0284c7; }
+    .pci-price.gold { background: #fef3c7; color: #b45309; }
+    .pci-price.emerald { background: #ecfdf5; color: #059669; }
+    .pci-price.neutral { background: #f1f5f9; color: #334155; }
+    .pci-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .flight-banner-card {
+      background: #ecfdf5;
+      border: 1.5px solid #10b981;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.08);
+    }
+    .flight-banner-right {
+      text-align: right;
+      border-left: 1px solid #a7f3d0;
+      padding-left: 20px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-nav-short-text {
+      display: none;
+    }
+
     footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      background: #02050a;
+      border-top: 1px solid var(--border-subtle);
+      background: #f1f5f9;
       padding: 50px 24px 30px;
       text-align: center;
     }
 
+    /* ========================================================
+       COMPREHENSIVE RESPONSIVE STYLES (TABLET & MOBILE)
+       ======================================================== */
+    @media (max-width: 900px) {
+      .luxury-bp-web {
+        grid-template-columns: 1fr;
+      }
+      .bp-notch-web, .bp-perforation-web {
+        display: none;
+      }
+      .bp-stub-web {
+        border-left: none;
+        border-top: 2px dashed #cbd5e1;
+        background: #fbf8f0;
+      }
+    }
+
     @media (max-width: 768px) {
-      .hero-stats { grid-template-columns: 1fr 1fr; }
-      .flight-grid { grid-template-columns: 1fr; }
-      .segment-box-web { grid-template-columns: 1fr; }
-      .pricing-hero-nums { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      header {
+        padding: 10px 16px;
+      }
+      .brand-logo .monogram {
+        width: 32px;
+        height: 32px;
+        font-size: 11pt;
+      }
+      .brand-logo .name {
+        font-size: 11.5pt;
+        letter-spacing: 0.16em;
+      }
+      .btn-download-nav {
+        padding: 7px 14px;
+        font-size: 7.5pt;
+      }
+      .btn-nav-full-text {
+        display: none;
+      }
+      .btn-nav-short-text {
+        display: inline;
+      }
+
+      .container {
+        padding: 45px 16px;
+      }
+      .section-head {
+        margin-bottom: 28px;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+      .section-desc {
+        font-size: 0.88rem;
+      }
+
+      /* Hero responsive */
+      .hero {
+        min-height: auto;
+        padding: 85px 16px 45px;
+      }
+      .hero-badge {
+        font-size: 7pt;
+        letter-spacing: 0.12em;
+        padding: 5px 12px;
+        margin-bottom: 14px;
+      }
+      .hero-title {
+        font-size: clamp(2rem, 8vw, 2.7rem);
+        line-height: 1.1;
+        margin-bottom: 12px;
+      }
+      .hero-sub {
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        margin-bottom: 22px;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        gap: 10px;
+      }
+      .hero-cta-group .btn-download,
+      .hero-cta-group .btn-nav {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 12px 20px !important;
+        font-size: 9pt !important;
+      }
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 16px 12px;
+        margin-top: 28px;
+      }
+      .hero-stats .stat-item .val {
+        font-size: 1.15rem;
+      }
+      .hero-stats .stat-item .lbl {
+        font-size: 0.65rem;
+      }
+
+      /* Flipbook Viewer */
+      .viewer-toolbar {
+        padding: 12px 14px;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .viewer-nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .viewer-stage {
+        padding: 10px 6px;
+        min-height: 380px;
+        background: #edf2f7;
+      }
+      .brochure-preview-img {
+        max-height: 70vh;
+      }
+      .thumb-strip {
+        padding: 10px 12px;
+        gap: 8px;
+      }
+      .thumb-item {
+        flex: 0 0 54px;
+        height: 76px;
+      }
+
+      /* Flight Tickets Mobile */
+      .flight-banner-card {
+        padding: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .flight-banner-right {
+        text-align: left;
+        border-left: none;
+        border-top: 1px solid #a7f3d0;
+        padding-left: 0;
+        padding-top: 12px;
+        width: 100%;
+      }
+      .bp-main-web {
+        padding: 18px 14px;
+        gap: 14px;
+      }
+      .bp-header-web {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .bp-airline-name-web {
+        font-size: 1.05rem;
+      }
+      .bp-badge-row-web {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .bp-leg-web {
+        display: grid;
+        grid-template-columns: 78px 1fr 78px;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 0;
+      }
+      .bp-station-web {
+        line-height: 1.2;
+      }
+      .bp-station-web.right {
+        text-align: right;
+      }
+      .bp-time-web {
+        font-size: 1.15rem;
+      }
+      .bp-time-web .ampm {
+        font-size: 0.68rem;
+      }
+      .bp-code-web {
+        font-size: 1.25rem;
+      }
+      .bp-city-web {
+        font-size: 0.68rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .bp-mid-web {
+        padding: 0 2px;
+      }
+      .bp-dur-pill {
+        font-size: 0.65rem;
+        padding: 1px 6px;
+        margin-bottom: 2px;
+      }
+      .bp-flight-desc {
+        font-size: 0.68rem;
+      }
+      .bp-aircraft-web {
+        font-size: 0.62rem;
+      }
+      .bp-plane-web {
+        font-size: 0.8rem;
+      }
+      .bp-transfer-web {
+        font-size: 0.72rem;
+        padding: 6px 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+      .bp-stub-web {
+        padding: 16px 14px;
+      }
+      .bp-stub-price-web {
+        font-size: 1.5rem;
+      }
+      .bp-stub-row-web {
+        font-size: 0.72rem;
+        padding: 3px 0;
+      }
+      .bp-stub-row-web span:last-child {
+        text-align: right;
+      }
+
+      /* Pricing / Investment Mobile */
+      .calc-card {
+        padding: 18px 14px;
+        border-radius: 14px;
+      }
+      .pricing-hero-nums {
+        grid-template-columns: 1fr;
+        padding: 16px 14px;
+        gap: 16px;
+      }
+      .pricing-hero-nums .mono {
+        font-size: 1.45rem !important;
+      }
+      .pricing-table-desktop {
+        display: none;
+      }
+      .pricing-cards-mobile {
+        display: flex;
+      }
     }
   </style>
 </head>
@@ -675,9 +1015,10 @@
       <li><a href="#pricing">Per Pax Investment</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="nomadller-russia-winter-adventure.pdf" download class="btn-download">
+      <a href="nomadller-russia-winter-adventure.pdf" download class="btn-download btn-download-nav">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-        Download PDF (Per Pax)
+        <span class="btn-nav-full-text">Download PDF (Per Pax)</span>
+        <span class="btn-nav-short-text">PDF (9.6 MB)</span>
       </a>
     </div>
   </header>
@@ -687,17 +1028,17 @@
     <img src="assets/cover_aurora.jpg" class="hero-bg" alt="Russia Aurora Borealis">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge">Private Travel Dossier • All Costs Shown Per Pax</div>
+      <div class="hero-badge">★ PRIVATE DOSSIER • ALL COSTS SHOWN PER PAX</div>
       <h1 class="hero-title serif">
-        RUSSIA WINTER<br><span class="aurora-text">ADVENTURE</span>
+        RUSSIA WINTER<br><span style="color: #38bdf8;">ADVENTURE</span>
       </h1>
       <p class="hero-sub">Moscow • Murmansk • Teriberka • St Petersburg</p>
       
-      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+      <div class="hero-cta-group">
         <a href="nomadller-russia-winter-adventure.pdf" download class="btn-download" style="padding: 12px 28px; font-size: 9.5pt;">
-          Download Official PDF (9.5 MB)
+          Download Official PDF (9.6 MB)
         </a>
-        <a href="#brochure-viewer" class="btn-nav" style="padding: 12px 28px; font-size: 9.5pt; border-radius: 30px;">
+        <a href="#brochure-viewer" class="btn-nav" style="padding: 12px 28px; font-size: 9.5pt; border-radius: 30px; background: rgba(255,255,255,0.95); color: #0f172a; font-weight: 700; border: none;">
           View Flipbook Pages ↓
         </a>
       </div>
@@ -708,16 +1049,16 @@
           <div class="lbl">Core Circuit</div>
         </div>
         <div class="stat-item">
-          <div class="val gold-text">₹1,42,550+</div>
-          <div class="lbl">Land Cost / Pax</div>
+          <div class="val" style="color: #b45309;">₹1,42,550+</div>
+          <div class="lbl">Total Land / Pax</div>
         </div>
         <div class="stat-item">
-          <div class="val" style="color: #38bdf8;">USD 532</div>
+          <div class="val" style="color: #0284c7;">USD 532</div>
           <div class="lbl">Flights / Pax</div>
         </div>
         <div class="stat-item">
-          <div class="val" style="color: #10b981;">₹91,000</div>
-          <div class="lbl">Package / Pax</div>
+          <div class="val" style="color: #059669;">₹91,000</div>
+          <div class="lbl">Base Pkg / Pax</div>
         </div>
       </div>
     </div>
@@ -728,7 +1069,7 @@
     <div class="section-head">
       <div class="section-tag">High-Resolution Digital Dossier</div>
       <h2 class="section-title serif">INTERACTIVE BROCHURE VIEWER</h2>
-      <p class="section-desc">Flip through the complete 15-page luxury presentation dossier. All pricing shown strictly per pax.</p>
+      <p class="section-desc">Flip through the complete 15-page Nordic luxury presentation dossier. All pricing shown strictly per pax.</p>
     </div>
 
     <div class="viewer-card">
@@ -765,8 +1106,8 @@
     <div class="route-grid">
       <div class="route-card">
         <div class="route-step-badge">1</div>
-        <h3 class="serif" style="font-size: 1.05rem; color: #fff;">DAY 1: FLY FROM INDIA → REACH MOSCOW & STAY</h3>
-        <p style="font-size: 0.8rem; color: var(--gold); font-weight: 600;">Stay at Moscow</p>
+        <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 1: FLY FROM INDIA → REACH MOSCOW & STAY</h3>
+        <p style="font-size: 0.8rem; color: #b45309; font-weight: 700;">Stay at Moscow</p>
         <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
           Flight from India via Baku. Arrive Moscow, hotel check-in, rest, twilight Red Square & Kremlin walk.
         </p>
@@ -774,8 +1115,8 @@
 
       <div class="route-card">
         <div class="route-step-badge">2</div>
-        <h3 class="serif" style="font-size: 1.05rem; color: #fff;">DAY 2: FLY TO MURMANSK • LENIN ICEBREAKER • AURORA</h3>
-        <p style="font-size: 0.8rem; color: #10b981; font-weight: 600;">Stay at Murmansk</p>
+        <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 2: FLY TO MURMANSK • LENIN ICEBREAKER • AURORA</h3>
+        <p style="font-size: 0.8rem; color: #059669; font-weight: 700;">Stay at Murmansk</p>
         <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
           Fly to Murmansk (included). Visit Lenin Nuclear Icebreaker & Alyosha. Night Northern Lights hunting.
         </p>
@@ -783,8 +1124,8 @@
 
       <div class="route-card">
         <div class="route-step-badge">3</div>
-        <h3 class="serif" style="font-size: 1.05rem; color: #fff;">DAY 3: HUSKY PARK & NORTHERN LIGHTS HUNTING</h3>
-        <p style="font-size: 0.8rem; color: #10b981; font-weight: 600;">Stay at Murmansk</p>
+        <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 3: HUSKY PARK & NORTHERN LIGHTS HUNTING</h3>
+        <p style="font-size: 0.8rem; color: #059669; font-weight: 700;">Stay at Murmansk</p>
         <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
           Husky dog sledding safari, reindeer feeding, Sami lunch. Evening Northern Lights hunting expedition.
         </p>
@@ -792,8 +1133,8 @@
 
       <div class="route-card">
         <div class="route-step-badge">4</div>
-        <h3 class="serif" style="font-size: 1.05rem; color: #fff;">DAY 4: TERIBERKA TRIP & STAY AT TERIBERKA</h3>
-        <p style="font-size: 0.8rem; color: var(--cyan); font-weight: 600;">Stay at Teriberka</p>
+        <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 4: TERIBERKA TRIP & STAY AT TERIBERKA</h3>
+        <p style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">Stay at Teriberka</p>
         <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
           120 km Arctic drive, Dragon Egg Beach, Arctic Windmill, Arctic seafood lunch (₹1,500/pax), coastal stay.
         </p>
@@ -801,8 +1142,8 @@
 
       <div class="route-card">
         <div class="route-step-badge">5</div>
-        <h3 class="serif" style="font-size: 1.05rem; color: #fff;">DAY 5: TERIBERKA TO AIRPORT → FLY TO ST PETERSBURG</h3>
-        <p style="font-size: 0.8rem; color: var(--gold); font-weight: 600;">Stay at St Petersburg</p>
+        <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 5: TERIBERKA TO AIRPORT → FLY TO ST PETERSBURG</h3>
+        <p style="font-size: 0.8rem; color: #b45309; font-weight: 700;">Stay at St Petersburg</p>
         <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
           Transfer to Murmansk airport (₹3,000/pax), domestic flight to St Petersburg (included), canal walk & boat ride.
         </p>
@@ -810,8 +1151,8 @@
 
       <div class="route-card">
         <div class="route-step-badge">6</div>
-        <h3 class="serif" style="font-size: 1.05rem; color: #fff;">DAY 6: ST PETERSBURG SIGHTSEEING & STAY</h3>
-        <p style="font-size: 0.8rem; color: var(--gold); font-weight: 600;">Stay at St Petersburg</p>
+        <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 6: ST PETERSBURG SIGHTSEEING & STAY</h3>
+        <p style="font-size: 0.8rem; color: #b45309; font-weight: 700;">Stay at St Petersburg</p>
         <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
           Winter Palace & Hermitage, Church on Spilled Blood, Peter & Paul Fortress, St Isaac's Cathedral.
         </p>
@@ -819,8 +1160,8 @@
 
       <div class="route-card">
         <div class="route-step-badge">7</div>
-        <h3 class="serif" style="font-size: 1.05rem; color: #fff;">DAY 7: SAPSAN TO MOSCOW • SHOPPING & PURCHASES</h3>
-        <p style="font-size: 0.8rem; color: #a855f7; font-weight: 600;">Stay at Moscow</p>
+        <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 7: SAPSAN TO MOSCOW • SHOPPING & PURCHASES</h3>
+        <p style="font-size: 0.8rem; color: #7c3aed; font-weight: 700;">Stay at Moscow</p>
         <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
           250 km/h Sapsan train (₹5,000/pax). Izmailovsky Kremlin artisan market shopping & purchases, dinner.
         </p>
@@ -828,8 +1169,8 @@
 
       <div class="route-card">
         <div class="route-step-badge">8</div>
-        <h3 class="serif" style="font-size: 1.05rem; color: #fff;">DAY 8: DEPARTURE FLIGHT TO INDIA</h3>
-        <p style="font-size: 0.8rem; color: var(--cyan); font-weight: 600;">In Flight / Homeward</p>
+        <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 8: DEPARTURE FLIGHT TO INDIA</h3>
+        <p style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">In Flight / Homeward</p>
         <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
           Transfer to Moscow Vnukovo airport. International departure flight back to India via Baku.
         </p>
@@ -846,20 +1187,20 @@
     </div>
 
     <!-- Pricing Highlight Card -->
-    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.2) 100%); border: 1.5px solid #10b981; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+    <div class="flight-banner-card">
       <div>
-        <div style="font-size: 8pt; text-transform: uppercase; letter-spacing: 0.15em; color: #a7f3d0; font-weight: 700;">INTERNATIONAL AIRFARE (PER PAX)</div>
-        <div style="font-size: 1.8rem; font-weight: 800; color: #ffffff; margin-top: 4px;">
-          USD 532 <span style="font-size: 1rem; color: #6ee7b7; font-weight: 600;">PER PERSON</span>
+        <div style="font-size: 8pt; text-transform: uppercase; letter-spacing: 0.15em; color: #047857; font-weight: 700;">INTERNATIONAL AIRFARE (PER PAX)</div>
+        <div style="font-size: 1.8rem; font-weight: 800; color: #065f46; margin-top: 4px;">
+          USD 532 <span style="font-size: 1rem; color: #059669; font-weight: 600;">PER PERSON</span>
         </div>
-        <div style="font-size: 8.5pt; color: #cbd5e1; margin-top: 2px;">
+        <div style="font-size: 8.5pt; color: #334155; margin-top: 2px;">
           Round-trip ticket cost per traveller on Azerbaijan Airlines via Baku.
         </div>
       </div>
-      <div style="text-align: right; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 20px;">
-        <div style="font-size: 7.5pt; text-transform: uppercase; color: var(--text-muted);">Baggage Allowance / Pax</div>
-        <div style="font-size: 9.5pt; font-weight: 700; color: #ffffff;">Cabin: 1 × 10 kg (55×40×23 cm)</div>
-        <div style="font-size: 8pt; color: #f87171; font-weight: 600;">Checked Baggage: Not Included</div>
+      <div class="flight-banner-right">
+        <div style="font-size: 7.5pt; text-transform: uppercase; color: #64748b; font-weight: 600;">Baggage Allowance / Pax</div>
+        <div style="font-size: 9.5pt; font-weight: 700; color: #0f172a;">Cabin: 1 × 10 kg (55×40×23 cm)</div>
+        <div style="font-size: 8pt; color: #b45309; font-weight: 600;">Checked Baggage: Optional Add-on</div>
       </div>
     </div>
 
@@ -966,10 +1307,10 @@
             <div style="font-size:0.72rem; font-weight:800; color:#065f46;">PER PERSON (~₹44,500)</div>
           </div>
           <div style="border-top:1px solid #dfd1bb; border-bottom:1px solid #dfd1bb; padding:8px 0; margin:10px 0; display:flex; flex-direction:column; gap:4px;">
-            <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">PASSENGERS:</span><span style="font-weight:700;">2 Adults</span></div>
+            <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">PASSENGERS:</span><span style="font-weight:700; color:#0f172a;">2 Adults</span></div>
             <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">CABIN BAG:</span><span style="color:#047857; font-weight:800;">1 × 10 kg Included</span></div>
             <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">CHECKED BAG:</span><span style="color:#b45309; font-weight:600;">Optional Add-on</span></div>
-            <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">BOOKING REF:</span><span style="font-weight:700;">NOMAD-AZ-2026</span></div>
+            <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">BOOKING REF:</span><span style="font-weight:700; color:#0f172a;">NOMAD-AZ-2026</span></div>
           </div>
           <div style="text-align:center;">
             <svg viewBox="0 0 120 22" fill="#1e293b" style="width:100%; height:28px;">
@@ -1094,10 +1435,10 @@
             <div style="font-size:0.72rem; font-weight:800; color:#065f46;">PER PERSON (~₹44,500)</div>
           </div>
           <div style="border-top:1px solid #dfd1bb; border-bottom:1px solid #dfd1bb; padding:8px 0; margin:10px 0; display:flex; flex-direction:column; gap:4px;">
-            <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">PASSENGERS:</span><span style="font-weight:700;">2 Adults</span></div>
+            <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">PASSENGERS:</span><span style="font-weight:700; color:#0f172a;">2 Adults</span></div>
             <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">CABIN BAG:</span><span style="color:#047857; font-weight:800;">1 × 10 kg Included</span></div>
             <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">CHECKED BAG:</span><span style="color:#b45309; font-weight:600;">Optional Add-on</span></div>
-            <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">TRANSIT:</span><span style="font-weight:700;">11h 10m Total</span></div>
+            <div class="bp-stub-row-web"><span style="color:#64748b; font-weight:700;">TRANSIT:</span><span style="font-weight:700; color:#0f172a;">11h 10m Total</span></div>
           </div>
           <div style="text-align:center;">
             <svg viewBox="0 0 120 22" fill="#1e293b" style="width:100%; height:28px;">
@@ -1119,7 +1460,8 @@
           </div>
         </div>
       </div>
-    </div></section>
+    </div>
+  </section>
 
   <!-- Complete Investment Section (Strictly Per Pax) -->
   <section class="container" id="pricing">
@@ -1133,7 +1475,7 @@
       <div class="pricing-hero-nums">
         <div>
           <div style="font-size: 8pt; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 700;">TOTAL LAND COST / PAX</div>
-          <div class="mono" style="font-size: 1.8rem; font-weight: 800; color: #ffffff; margin-top: 6px;">
+          <div class="mono" style="font-size: 1.8rem; font-weight: 800; color: #0f172a; margin-top: 6px;">
             ₹1,42,550 – ₹1,47,550
           </div>
           <div style="font-size: 8pt; color: var(--text-muted); margin-top: 4px;">
@@ -1142,8 +1484,8 @@
         </div>
 
         <div>
-          <div style="font-size: 8pt; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cyan); font-weight: 700;">INTERNATIONAL FLIGHTS / PAX</div>
-          <div class="mono" style="font-size: 1.8rem; font-weight: 800; color: #38bdf8; margin-top: 6px;">
+          <div style="font-size: 8pt; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ice); font-weight: 700;">INTERNATIONAL FLIGHTS / PAX</div>
+          <div class="mono" style="font-size: 1.8rem; font-weight: 800; color: #0284c7; margin-top: 6px;">
             USD 532
           </div>
           <div style="font-size: 8pt; color: var(--text-muted); margin-top: 4px;">
@@ -1152,59 +1494,126 @@
         </div>
       </div>
 
-      <!-- Itemized Table (Strictly Per Pax) -->
-      <div style="margin-top: 28px; overflow-x: auto;">
+      <!-- Desktop Itemized Table (Strictly Per Pax) -->
+      <div class="pricing-table-desktop">
         <table style="width: 100%; border-collapse: collapse; font-size: 8.5pt;">
           <thead>
-            <tr style="border-bottom: 2px solid rgba(56, 189, 248, 0.3); color: var(--cyan); text-align: left;">
-              <th style="padding: 10px;">Item / Component</th>
-              <th style="padding: 10px;">Scope & Inclusions</th>
-              <th style="padding: 10px; text-align: right;">Cost Per Person</th>
+            <tr style="border-bottom: 2px solid #cbd5e1; background: #f1f5f9; color: #0f172a; text-align: left;">
+              <th style="padding: 12px 14px; font-weight: 700;">Item / Component</th>
+              <th style="padding: 12px 14px; font-weight: 700;">Scope & Inclusions</th>
+              <th style="padding: 12px 14px; text-align: right; font-weight: 700;">Cost Per Person</th>
             </tr>
           </thead>
-          <tbody style="color: #cbd5e1;">
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <td style="padding: 10px;"><strong style="color: #fff;">Main Russia Base Package</strong></td>
-              <td style="padding: 10px;">Domestic flights, Husky/Reindeer sleds, Sami lunch, Teriberka drive</td>
-              <td style="padding: 10px; text-align: right; color: var(--cyan); font-weight: 700;">₹91,000 / Pax</td>
+          <tbody style="color: #334155;">
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Main Russia Base Package</strong></td>
+              <td style="padding: 12px 14px;">Domestic flights, Husky/Reindeer sleds, Sami lunch, Teriberka drive</td>
+              <td style="padding: 12px 14px; text-align: right; color: var(--ice); font-weight: 800;">₹91,000 / Pax</td>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <td style="padding: 10px;">Hotel Accommodations (7 Nights Share)</td>
-              <td style="padding: 10px;">Moscow (2N), Murmansk (2N), Teriberka (1N), St Petersburg (2N)</td>
-              <td style="padding: 10px; text-align: right; color: var(--gold); font-weight: 700;">₹17,750 – ₹22,750 / Pax</td>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Hotel Accommodations (7 Nights Share)</strong></td>
+              <td style="padding: 12px 14px;">Moscow (2N), Murmansk (2N), Teriberka (1N), St Petersburg (2N)</td>
+              <td style="padding: 12px 14px; text-align: right; color: var(--gold); font-weight: 800;">₹17,750 – ₹22,750 / Pax</td>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <td style="padding: 10px;">Russian Tourist E-Visa</td>
-              <td style="padding: 10px;">Official e-visa fee</td>
-              <td style="padding: 10px; text-align: right;">₹6,000 / Pax</td>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Russian Tourist E-Visa</strong></td>
+              <td style="padding: 12px 14px;">Official e-visa fee</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹6,000 / Pax</td>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <td style="padding: 10px;">Sapsan High-Speed Bullet Train</td>
-              <td style="padding: 10px;">St Petersburg to Moscow 250 km/h express</td>
-              <td style="padding: 10px; text-align: right;">₹5,000 / Pax</td>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Sapsan High-Speed Bullet Train</strong></td>
+              <td style="padding: 12px 14px;">St Petersburg to Moscow 250 km/h express</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹5,000 / Pax</td>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <td style="padding: 10px;">Teriberka → Airport Transfer Share</td>
-              <td style="padding: 10px;">Private snow road transfer share</td>
-              <td style="padding: 10px; text-align: right;">₹3,000 / Pax</td>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Teriberka → Airport Transfer Share</strong></td>
+              <td style="padding: 12px 14px;">Private snow road transfer share</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹3,000 / Pax</td>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <td style="padding: 10px;">Teriberka Arctic Gourmet Lunch</td>
-              <td style="padding: 10px;">Fresh Barents Sea seafood dining</td>
-              <td style="padding: 10px; text-align: right;">₹1,500 / Pax</td>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Teriberka Arctic Gourmet Lunch</strong></td>
+              <td style="padding: 12px 14px;">Fresh Barents Sea seafood dining</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹1,500 / Pax</td>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <td style="padding: 10px;">Food & Dining Planning Budget</td>
-              <td style="padding: 10px;">Planning assumption: ₹600/meal × 3 meals × 9 days</td>
-              <td style="padding: 10px; text-align: right;">₹16,200 / Pax</td>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Food & Dining Planning Budget</strong></td>
+              <td style="padding: 12px 14px;">Planning assumption: ₹600/meal × 3 meals × 9 days</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹16,200 / Pax</td>
             </tr>
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-              <td style="padding: 10px;">Sightseeing Tickets, Canal Cruise & Yandex</td>
-              <td style="padding: 10px;">Canal boat (₹800), museum tickets (₹1,000), Yandex taxi (₹300)</td>
-              <td style="padding: 10px; text-align: right;">₹2,100 / Pax</td>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Sightseeing Tickets, Canal Cruise & Yandex</strong></td>
+              <td style="padding: 12px 14px;">Canal boat (₹800), museum tickets (₹1,000), Yandex taxi (₹300)</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹2,100 / Pax</td>
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <!-- Mobile Ledger Cards (Zero cut-off, Touch Optimized) -->
+      <div class="pricing-cards-mobile">
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Main Russia Base Package</span>
+            <span class="pci-price ice">₹91,000</span>
+          </div>
+          <div class="pci-desc">Domestic flights, Husky/Reindeer sleds, Sami lunch, Teriberka Arctic drive.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Hotel Accommodations (7N Share)</span>
+            <span class="pci-price gold">₹17,750 – ₹22,750</span>
+          </div>
+          <div class="pci-desc">Moscow (2N), Murmansk (2N), Teriberka (1N), St Petersburg (2N).</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Russian Tourist E-Visa</span>
+            <span class="pci-price neutral">₹6,000</span>
+          </div>
+          <div class="pci-desc">Official Russian government e-visa fee.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Sapsan High-Speed Bullet Train</span>
+            <span class="pci-price neutral">₹5,000</span>
+          </div>
+          <div class="pci-desc">St Petersburg to Moscow 250 km/h high-speed express.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Teriberka → Airport Transfer Share</span>
+            <span class="pci-price neutral">₹3,000</span>
+          </div>
+          <div class="pci-desc">Private snow road transfer share to Murmansk airport.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Teriberka Arctic Gourmet Lunch</span>
+            <span class="pci-price neutral">₹1,500</span>
+          </div>
+          <div class="pci-desc">Fresh Barents Sea seafood dining experience.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Food & Dining Planning Budget</span>
+            <span class="pci-price neutral">₹16,200</span>
+          </div>
+          <div class="pci-desc">Planning guideline: ₹600/meal × 3 meals × 9 days.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Sightseeing Tickets, Canal Cruise & Yandex</span>
+            <span class="pci-price neutral">₹2,100</span>
+          </div>
+          <div class="pci-desc">Canal boat (₹800), museum tickets (₹1,000), Yandex local taxi share (₹300).</div>
+        </div>
       </div>
 
       <div style="text-align: center; margin-top: 32px;">
@@ -1218,7 +1627,7 @@
   <!-- Footer -->
   <footer>
     <div style="max-width: 600px; margin: 0 auto;">
-      <div class="serif" style="font-size: 1.4rem; font-weight: 800; color: #ffffff; letter-spacing: 0.2em; margin-bottom: 8px;">
+      <div class="serif" style="font-size: 1.4rem; font-weight: 800; color: #0f172a; letter-spacing: 0.2em; margin-bottom: 8px;">
         NOMADLLER
       </div>
       <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 24px;">
@@ -1274,6 +1683,22 @@
       if (e.key === 'ArrowRight' || e.key === 'PageDown') nextPage();
       if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevPage();
     });
+
+    // Touch swipe support for smartphone flipbook
+    const stage = document.querySelector('.viewer-stage');
+    if (stage) {
+      let touchStartX = 0;
+      let touchEndX = 0;
+      stage.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      stage.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (diff < -45) nextPage();
+        else if (diff > 45) prevPage();
+      }, { passive: true });
+    }
   </script>
 </body>
 </html>

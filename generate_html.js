@@ -19,13 +19,13 @@ const htmlContent = `<!DOCTYPE html>
     .overlay-vignette {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(180deg, rgba(5,11,20,0.65) 0%, rgba(5,11,20,0.3) 40%, rgba(5,11,20,0.88) 85%, #050b14 100%);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.2) 40%, rgba(15, 23, 42, 0.8) 85%, #0f172a 100%);
       z-index: 2;
     }
     .overlay-dark {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 50% 20%, rgba(12,28,52,0.4) 0%, rgba(5,11,20,0.92) 80%);
+      background: radial-gradient(circle at 50% 20%, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.88) 80%);
       z-index: 2;
     }
     .card-grid-2 {
@@ -44,13 +44,14 @@ const htmlContent = `<!DOCTYPE html>
       align-items: center;
       gap: 12px;
       padding: 10px 14px;
-      background: rgba(15, 29, 50, 0.75);
-      border: 1px solid rgba(56, 189, 248, 0.22);
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
       border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
     }
     .route-arrow {
       text-align: center;
-      color: var(--cyan-accent);
+      color: var(--ice-accent);
       font-size: 13pt;
       line-height: 1;
       padding: 1px 0;
@@ -59,8 +60,8 @@ const htmlContent = `<!DOCTYPE html>
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      background: var(--gold-gradient);
-      color: #050b14;
+      background: var(--ice-accent);
+      color: #ffffff;
       font-weight: 800;
       font-size: 9pt;
       display: flex;
@@ -70,7 +71,7 @@ const htmlContent = `<!DOCTYPE html>
     }
 
     /* ========================================================
-       LUXURY BOARDING PASS SUITE (CHAMPAGNE / IVORY PHYSICAL PASS)
+       LUXURY BOARDING PASS SUITE (PHYSICAL PASS ON NORDIC CANVAS)
        ======================================================== */
     .boarding-passes-container {
       display: flex;
@@ -80,34 +81,34 @@ const htmlContent = `<!DOCTYPE html>
 
     .luxury-boarding-pass {
       position: relative;
-      background: linear-gradient(135deg, #fffdf8 0%, #faf3e4 50%, #f3e5cd 100%);
+      background: linear-gradient(135deg, #fffdf8 0%, #faf6ec 50%, #f4ede0 100%);
       border: 1.5px solid #d4af37;
       border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(212, 175, 55, 0.25);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
       display: flex;
       height: 85mm;
       overflow: hidden;
       color: #0f172a;
     }
 
-    /* Perforation Cutout Half-Circles */
+    /* Perforation Cutout Half-Circles Matching Page Background */
     .bp-notch {
       position: absolute;
       width: 14px;
       height: 14px;
-      background-color: var(--bg-dark);
+      background-color: var(--bg-page);
       border-radius: 50%;
       z-index: 10;
     }
     .bp-notch-top {
       top: -7px;
       right: 48mm;
-      box-shadow: inset 0 -2px 3px rgba(0, 0, 0, 0.4);
+      box-shadow: inset 0 -2px 3px rgba(15, 23, 42, 0.2);
     }
     .bp-notch-bottom {
       bottom: -7px;
       right: 48mm;
-      box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.4);
+      box-shadow: inset 0 2px 3px rgba(15, 23, 42, 0.2);
     }
 
     /* Perforation Dashed Tear Line */
@@ -117,7 +118,7 @@ const htmlContent = `<!DOCTYPE html>
       bottom: 7px;
       right: 48mm;
       width: 0;
-      border-right: 1.5px dashed #c4b39b;
+      border-right: 1.5px dashed #cbd5e1;
       z-index: 5;
     }
 
@@ -188,213 +189,200 @@ const htmlContent = `<!DOCTYPE html>
       color: #ffffff;
     }
     .bp-class-pill {
-      font-size: 5.6pt;
+      font-size: 6pt;
       font-weight: 700;
       color: #475569;
       background: rgba(0, 0, 0, 0.05);
       border: 1px solid #d1c4b2;
       padding: 2px 6px;
       border-radius: 4px;
-      letter-spacing: 0.04em;
     }
 
-    /* Itinerary Area */
-    .bp-itinerary {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-    .bp-leg {
+    /* Legs row */
+    .bp-flight-leg {
       display: grid;
-      grid-template-columns: 37mm 1fr 37mm;
+      grid-template-columns: 24mm 1fr 24mm;
       align-items: center;
       padding: 1px 0;
     }
     .bp-station {
-      line-height: 1.15;
+      line-height: 1.2;
     }
     .bp-station.right {
       text-align: right;
     }
     .bp-time {
       font-family: "JetBrains Mono", monospace;
-      font-size: 9.6pt;
+      font-size: 9.8pt;
       font-weight: 800;
       color: #0f172a;
-      letter-spacing: -0.02em;
     }
     .bp-time .ampm {
-      font-size: 6.2pt;
-      font-weight: 600;
+      font-size: 6.5pt;
       color: #475569;
-      margin-left: 1px;
     }
     .bp-date {
-      font-size: 5.6pt;
-      font-weight: 600;
+      font-size: 5.4pt;
+      font-weight: 700;
       color: #64748b;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       text-transform: uppercase;
     }
     .bp-date.overnight {
       color: #dc2626;
       font-weight: 800;
     }
-    .bp-airport-code {
+    .bp-code {
       font-family: "Cinzel", serif;
       font-size: 11pt;
       font-weight: 800;
       color: #0b1e36;
-      letter-spacing: 0.06em;
       line-height: 1.1;
-      margin-top: 1px;
     }
     .bp-city {
       font-size: 5.6pt;
       color: #475569;
-      font-weight: 500;
-    }
-    .bp-terminal {
-      font-weight: 700;
-      color: #0284c7;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    /* Flight mid info */
-    .bp-flight-mid {
+    /* Mid route column */
+    .bp-mid {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 0 4px;
-      line-height: 1.1;
+      padding: 0 6px;
+      text-align: center;
     }
-    .bp-duration {
+    .bp-duration-tag {
       font-family: "JetBrains Mono", monospace;
-      font-size: 6pt;
+      font-size: 5.6pt;
       font-weight: 700;
       color: #475569;
       background: #f1ebd8;
       border: 1px solid #dfd1bb;
       padding: 1px 6px;
       border-radius: 10px;
+      line-height: 1.3;
       margin-bottom: 2px;
     }
-    .bp-flight-line {
+    .bp-flight-vector {
       width: 100%;
       display: flex;
       align-items: center;
-      gap: 2px;
+      gap: 3px;
       margin: 1px 0;
     }
-    .bp-line-dot {
+    .bp-dot {
       width: 4px;
       height: 4px;
       border-radius: 50%;
       background: #b45309;
-      flex-shrink: 0;
     }
-    .bp-line-rule {
+    .bp-rule {
       flex: 1;
-      height: 1px;
+      height: 1.5px;
       background: #cbd5e1;
     }
     .bp-plane-icon {
       color: #0284c7;
       font-size: 7.5pt;
-      line-height: 1;
       transform: rotate(90deg);
       display: inline-block;
+      line-height: 1;
     }
     .bp-flight-no {
-      font-size: 6.2pt;
+      font-size: 5.8pt;
       color: #0f172a;
-      letter-spacing: 0.02em;
+      line-height: 1.2;
     }
     .bp-flight-no strong {
       color: #0284c7;
       font-weight: 800;
     }
-    .bp-aircraft {
-      font-size: 5.4pt;
+    .bp-equipment {
+      font-size: 5.2pt;
       color: #64748b;
-      font-weight: 500;
     }
 
-    /* Layover Transfer Bar */
-    .bp-transfer-bar {
-      background: rgba(2, 132, 199, 0.08);
-      border: 1px solid rgba(2, 132, 199, 0.25);
+    /* Layover connection box */
+    .bp-connection-bar {
+      background: rgba(2, 132, 199, 0.06);
+      border: 1px solid rgba(2, 132, 199, 0.2);
       border-radius: 5px;
-      padding: 2px 8px;
+      padding: 3px 8px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 5.8pt;
+      font-size: 5.6pt;
       color: #0f294a;
+      margin: 1px 0;
     }
-    .bp-transfer-tag {
+    .bp-conn-left {
       display: flex;
       align-items: center;
       gap: 4px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
+      font-weight: 700;
       color: #0284c7;
     }
-    .bp-transfer-duration {
+    .bp-conn-center {
       font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
       color: #0f172a;
-      font-weight: 600;
     }
-    .bp-transfer-duration strong {
-      color: #d97706;
-      font-weight: 800;
-    }
-    .bp-transfer-note {
-      color: #475569;
+    .bp-conn-right {
       font-style: italic;
+      color: #64748b;
     }
 
-    /* Right Boarding Pass Stub */
+    /* Right Tear-off Stub */
     .bp-stub {
       position: absolute;
       top: 0;
+      bottom: 0;
       right: 0;
       width: 48mm;
-      height: 100%;
       background: linear-gradient(135deg, #f7efe1 0%, #efe2cc 100%);
-      padding: 8px 10px 8px 11px;
+      padding: 8px 10px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       border-left: 1px solid rgba(212, 175, 55, 0.3);
     }
-    .bp-stub-pax-label {
+    .bp-stub-head {
+      border-bottom: 1px solid rgba(180, 83, 9, 0.2);
+      padding-bottom: 3px;
+    }
+    .bp-stub-tag {
       font-family: "Cinzel", serif;
       font-size: 5.6pt;
       font-weight: 800;
-      letter-spacing: 0.1em;
       color: #78350f;
-      text-transform: uppercase;
-      line-height: 1;
+      letter-spacing: 0.08em;
     }
-    .bp-stub-fare-title {
-      font-size: 5.2pt;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+    .bp-stub-carrier {
+      font-size: 4.8pt;
       color: #64748b;
-      margin-top: 1.5px;
-      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .bp-stub-price {
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 13pt;
+    .bp-stub-fare-block {
+      margin: 1.5px 0;
+    }
+    .bp-stub-fare-lbl {
+      font-size: 4.8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+    }
+    .bp-stub-fare-val {
+      font-size: 11pt;
       font-weight: 900;
       color: #047857;
-      letter-spacing: -0.02em;
       line-height: 1.1;
-      margin-top: 1px;
     }
-    .bp-stub-price-sub {
+    .bp-stub-fare-sub {
       font-size: 5.2pt;
       font-weight: 800;
       color: #065f46;
@@ -449,28 +437,29 @@ const htmlContent = `<!DOCTYPE html>
       font-weight: 600;
     }
 
+    /* Tables */
     .table-luxury {
       width: 100%;
       border-collapse: collapse;
       font-size: 7.8pt;
     }
     .table-luxury th {
-      background: rgba(14, 30, 52, 0.95);
-      color: var(--cyan-accent);
+      background: #f1f5f9;
+      color: #0f172a;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       padding: 8px 10px;
-      border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+      border-bottom: 2px solid #cbd5e1;
       text-align: left;
     }
     .table-luxury td {
       padding: 7px 10px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      color: #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      color: #334155;
     }
     .table-luxury tr:nth-child(even) td {
-      background: rgba(255, 255, 255, 0.02);
+      background: #fafafa;
     }
 
     .inc-badge {
@@ -480,9 +469,9 @@ const htmlContent = `<!DOCTYPE html>
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: rgba(16, 185, 129, 0.2);
+      background: #ecfdf5;
       border: 1px solid #10b981;
-      color: #10b981;
+      color: #059669;
       font-weight: 800;
       font-size: 9pt;
       margin-right: 8px;
@@ -495,9 +484,9 @@ const htmlContent = `<!DOCTYPE html>
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: rgba(239, 68, 68, 0.2);
+      background: #fef2f2;
       border: 1px solid #ef4444;
-      color: #ef4444;
+      color: #dc2626;
       font-weight: 800;
       font-size: 9pt;
       margin-right: 8px;
@@ -505,18 +494,19 @@ const htmlContent = `<!DOCTYPE html>
     }
 
     .stat-hero {
-      background: linear-gradient(135deg, rgba(16, 36, 64, 0.9) 0%, rgba(9, 20, 36, 0.95) 100%);
-      border: 1.5px solid rgba(245, 158, 11, 0.45);
+      background: #ffffff;
+      border: 1.5px solid rgba(15, 23, 42, 0.1);
       border-radius: 10px;
       padding: 16px 20px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
     }
     .stat-hero::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; height: 3px;
-      background: var(--gold-gradient);
+      background: var(--ice-accent);
     }
   </style>
 </head>
@@ -525,49 +515,54 @@ const htmlContent = `<!DOCTYPE html>
   <!-- ==========================================
        PAGE 1: COVER
        ========================================== -->
-  <div class="page" id="page-1">
+  <div class="page" id="page-1" style="background-color: #0b1526;">
     <img src="assets/cover_aurora.jpg" class="hero-img-bg" alt="Russia Aurora Borealis">
     <div class="overlay-vignette"></div>
 
     <div style="position: absolute; top: 16mm; left: 16mm; right: 16mm; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <div style="width: 32px; height: 32px; border: 1.5px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-weight: 700; color: var(--gold); font-size: 11pt;">N</div>
+        <div style="width: 32px; height: 32px; border: 1.5px solid #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-weight: 700; color: #ffffff; font-size: 11pt;">N</div>
         <div style="font-family: 'Cinzel', serif; font-size: 14pt; letter-spacing: 0.35em; font-weight: 800; color: #ffffff;">NOMADLLER</div>
       </div>
-      <div style="padding: 5px 14px; background: rgba(5,11,20,0.7); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; font-size: 7.5pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700;">
+      <div style="padding: 5px 14px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; font-size: 7.5pt; letter-spacing: 0.2em; text-transform: uppercase; color: #ffffff; font-weight: 700;">
         Per Pax Travel Dossier
       </div>
     </div>
 
     <div style="position: absolute; bottom: 22mm; left: 16mm; right: 16mm; z-index: 10;">
-      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); padding: 4px 12px; border-radius: 4px; font-size: 8pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan-accent); font-weight: 700; margin-bottom: 12px;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(2, 132, 199, 0.35); border: 1px solid rgba(56, 189, 248, 0.5); padding: 4px 12px; border-radius: 4px; font-size: 8pt; letter-spacing: 0.2em; text-transform: uppercase; color: #bae6fd; font-weight: 700; margin-bottom: 12px; backdrop-filter: blur(8px);">
         ★ 8-Day Arctic & Imperial Circuit • Per Pax Pricing
       </div>
 
-      <h1 class="font-serif" style="font-size: 38pt; line-height: 1.05; font-weight: 800; color: #ffffff; letter-spacing: 0.04em; margin-bottom: 8px; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-        RUSSIA WINTER<br><span class="aurora-text">ADVENTURE</span>
+      <h1 class="font-serif" style="font-size: 38pt; line-height: 1.05; font-weight: 800; color: #ffffff; letter-spacing: 0.04em; margin-bottom: 8px;">
+        RUSSIA WINTER<br><span style="color: #38bdf8;">ADVENTURE</span>
       </h1>
 
-      <p style="font-size: 11pt; letter-spacing: 0.28em; text-transform: uppercase; color: #cbd5e1; font-weight: 600; margin-bottom: 22px;">
-        Moscow <span style="color: var(--gold);">•</span> Murmansk <span style="color: var(--gold);">•</span> Teriberka <span style="color: var(--gold);">•</span> St Petersburg
+      <p style="font-size: 10pt; color: #e2e8f0; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 600; margin-bottom: 22px;">
+        Moscow • Murmansk • Teriberka • St Petersburg
       </p>
 
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 14px 18px; background: rgba(6, 14, 26, 0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;">
+      <!-- Pricing Bar Summary (Cover) -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 14px 18px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.8); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.25);">
         <div>
-          <div style="font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted);">Circuit</div>
-          <div style="font-size: 9.5pt; font-weight: 700; color: #ffffff; margin-top: 2px;">8 Days Active</div>
+          <div style="font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600;">Expedition Duration</div>
+          <div style="font-size: 11pt; font-weight: 800; color: #0f172a; margin-top: 2px;">8D / 7N</div>
+          <div style="font-size: 6.5pt; color: #64748b;">15 Jan – 24 Jan 2026</div>
         </div>
         <div>
-          <div style="font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted);">Land Investment / Pax</div>
-          <div style="font-size: 9.5pt; font-weight: 700; color: var(--gold); margin-top: 2px;">₹1,42,550 – ₹1,47,550</div>
+          <div style="font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600;">Land Package / Pax</div>
+          <div style="font-size: 11pt; font-weight: 800; color: #0f172a; margin-top: 2px;">₹91,000</div>
+          <div style="font-size: 6.5pt; color: #059669; font-weight: 700;">Base Package / Pax</div>
         </div>
         <div>
-          <div style="font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted);">Flights / Pax</div>
-          <div style="font-size: 9.5pt; font-weight: 700; color: var(--cyan-accent); margin-top: 2px;">USD 532 / Person</div>
+          <div style="font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600;">International Flights / Pax</div>
+          <div style="font-size: 11pt; font-weight: 800; color: #0284c7; margin-top: 2px;">USD 532</div>
+          <div style="font-size: 6.5pt; color: #64748b;">Azerbaijan Air Return</div>
         </div>
         <div>
-          <div style="font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted);">Package Basis</div>
-          <div style="font-size: 9.5pt; font-weight: 700; color: #10b981; margin-top: 2px;">₹91,000 / Person</div>
+          <div style="font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 600;">Total Land / Pax</div>
+          <div style="font-size: 11pt; font-weight: 800; color: #b45309; margin-top: 2px;">₹1,42,550+</div>
+          <div style="font-size: 6.5pt; color: #64748b;">All Land & Stays / Pax</div>
         </div>
       </div>
     </div>
@@ -586,7 +581,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="page-body" style="gap: 12px;">
       <div>
         <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">Seamless Travel Architecture</div>
-        <h2 class="font-serif" style="font-size: 21pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <h2 class="font-serif" style="font-size: 21pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           THE 8-DAY EXPEDITION ROUTE FLOW
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary); max-width: 650px;">
@@ -600,8 +595,8 @@ const htmlContent = `<!DOCTYPE html>
           <div class="step-num">1</div>
           <div style="flex: 1;">
             <div style="display: flex; justify-content: space-between;">
-              <span style="font-weight: 700; color: #ffffff; font-size: 9pt;">DAY 1: FLY FROM INDIA → REACH MOSCOW & STAY</span>
-              <span style="font-size: 7.5pt; color: var(--cyan-accent); font-weight: 600;">Overnight Moscow</span>
+              <span style="font-weight: 700; color: #0f172a; font-size: 9pt;">DAY 1: FLY FROM INDIA → REACH MOSCOW & STAY</span>
+              <span style="font-size: 7.5pt; color: #0284c7; font-weight: 700;">Overnight Moscow</span>
             </div>
             <div style="font-size: 7.3pt; color: var(--text-secondary);">International flight from India via Baku • Touchdown Moscow Vnukovo • Hotel check-in & rest • Red Square twilight walk</div>
           </div>
@@ -613,8 +608,8 @@ const htmlContent = `<!DOCTYPE html>
           <div class="step-num">2</div>
           <div style="flex: 1;">
             <div style="display: flex; justify-content: space-between;">
-              <span style="font-weight: 700; color: #ffffff; font-size: 9pt;">DAY 2: FLY TO MURMANSK • LENIN NUCLEAR ICEBREAKER • NORTHERN LIGHTS HUNTING</span>
-              <span style="font-size: 7.5pt; color: #10b981; font-weight: 600;">Overnight Murmansk</span>
+              <span style="font-weight: 700; color: #0f172a; font-size: 9pt;">DAY 2: FLY TO MURMANSK • LENIN NUCLEAR ICEBREAKER • NORTHERN LIGHTS HUNTING</span>
+              <span style="font-size: 7.5pt; color: #059669; font-weight: 700;">Overnight Murmansk</span>
             </div>
             <div style="font-size: 7.3pt; color: var(--text-secondary);">Morning flight to Murmansk • World’s first Nuclear Icebreaker Lenin tour • Night Aurora Borealis hunting expedition</div>
           </div>
@@ -626,8 +621,8 @@ const htmlContent = `<!DOCTYPE html>
           <div class="step-num">3</div>
           <div style="flex: 1;">
             <div style="display: flex; justify-content: space-between;">
-              <span style="font-weight: 700; color: #ffffff; font-size: 9pt;">DAY 3: HUSKY PARK • REINDEER SLEDDING • NORTHERN LIGHTS HUNTING</span>
-              <span style="font-size: 7.5pt; color: #10b981; font-weight: 600;">Overnight Murmansk</span>
+              <span style="font-weight: 700; color: #0f172a; font-size: 9pt;">DAY 3: HUSKY PARK • REINDEER SLEDDING • NORTHERN LIGHTS HUNTING</span>
+              <span style="font-size: 7.5pt; color: #059669; font-weight: 700;">Overnight Murmansk</span>
             </div>
             <div style="font-size: 7.3pt; color: var(--text-secondary);">Siberian Husky sledding • Reindeer sleigh & feeding • Sami traditional lunch • Second night Aurora hunting safari</div>
           </div>
@@ -639,8 +634,8 @@ const htmlContent = `<!DOCTYPE html>
           <div class="step-num">4</div>
           <div style="flex: 1;">
             <div style="display: flex; justify-content: space-between;">
-              <span style="font-weight: 700; color: #ffffff; font-size: 9pt;">DAY 4: TERIBERKA ARCTIC EXPEDITION • DRAGON EGG BEACH • STAY AT TERIBERKA</span>
-              <span style="font-size: 7.5pt; color: var(--cyan-accent); font-weight: 600;">Overnight Teriberka</span>
+              <span style="font-weight: 700; color: #0f172a; font-size: 9pt;">DAY 4: TERIBERKA ARCTIC EXPEDITION • DRAGON EGG BEACH • STAY AT TERIBERKA</span>
+              <span style="font-size: 7.5pt; color: #0284c7; font-weight: 700;">Overnight Teriberka</span>
             </div>
             <div style="font-size: 7.3pt; color: var(--text-secondary);">120 km Arctic drive • Dragon Egg Beach & Arctic Windmill • Barents Sea coastline • Arctic seafood lunch • Coastal overnight</div>
           </div>
@@ -652,8 +647,8 @@ const htmlContent = `<!DOCTYPE html>
           <div class="step-num">5</div>
           <div style="flex: 1;">
             <div style="display: flex; justify-content: space-between;">
-              <span style="font-weight: 700; color: #ffffff; font-size: 9pt;">DAY 5: TERIBERKA TO MURMANSK AIRPORT → FLY TO ST PETERSBURG & STAY</span>
-              <span style="font-size: 7.5pt; color: var(--gold); font-weight: 600;">Overnight St Petersburg</span>
+              <span style="font-weight: 700; color: #0f172a; font-size: 9pt;">DAY 5: TERIBERKA TO MURMANSK AIRPORT → FLY TO ST PETERSBURG & STAY</span>
+              <span style="font-size: 7.5pt; color: #b45309; font-weight: 700;">Overnight St Petersburg</span>
             </div>
             <div style="font-size: 7.3pt; color: var(--text-secondary);">Morning coast transfer to airport • Flight to St Petersburg (included) • Check-in hotel • Evening Neva River canal boat cruise</div>
           </div>
@@ -665,8 +660,8 @@ const htmlContent = `<!DOCTYPE html>
           <div class="step-num">6</div>
           <div style="flex: 1;">
             <div style="display: flex; justify-content: space-between;">
-              <span style="font-weight: 700; color: #ffffff; font-size: 9pt;">DAY 6: ST PETERSBURG SIGHTSEEING & STAY</span>
-              <span style="font-size: 7.5pt; color: var(--gold); font-weight: 600;">Overnight St Petersburg</span>
+              <span style="font-weight: 700; color: #0f172a; font-size: 9pt;">DAY 6: ST PETERSBURG SIGHTSEEING & STAY</span>
+              <span style="font-size: 7.5pt; color: #b45309; font-weight: 700;">Overnight St Petersburg</span>
             </div>
             <div style="font-size: 7.3pt; color: var(--text-secondary);">Winter Palace & State Hermitage Museum • Church on Spilled Blood • Peter & Paul Fortress • St Isaac's Cathedral</div>
           </div>
@@ -678,8 +673,8 @@ const htmlContent = `<!DOCTYPE html>
           <div class="step-num">7</div>
           <div style="flex: 1;">
             <div style="display: flex; justify-content: space-between;">
-              <span style="font-weight: 700; color: #ffffff; font-size: 9pt;">DAY 7: ST PETERSBURG TO MOSCOW VIA SAPSAN (HIGH SPEED TRAIN) • SHOPPING / PURCHASES</span>
-              <span style="font-size: 7.5pt; color: #a855f7; font-weight: 600;">Overnight Moscow</span>
+              <span style="font-weight: 700; color: #0f172a; font-size: 9pt;">DAY 7: ST PETERSBURG TO MOSCOW VIA SAPSAN (HIGH SPEED TRAIN) • SHOPPING / PURCHASES</span>
+              <span style="font-size: 7.5pt; color: #7c3aed; font-weight: 700;">Overnight Moscow</span>
             </div>
             <div style="font-size: 7.3pt; color: var(--text-secondary);">250 km/h Sapsan bullet train to Moscow • Izmailovsky Kremlin & market shopping / purchases • Festive farewell dinner</div>
           </div>
@@ -691,8 +686,8 @@ const htmlContent = `<!DOCTYPE html>
           <div class="step-num">8</div>
           <div style="flex: 1;">
             <div style="display: flex; justify-content: space-between;">
-              <span style="font-weight: 700; color: #ffffff; font-size: 9pt;">DAY 8: MOSCOW DEPARTURE → RETURN FLIGHT TO INDIA</span>
-              <span style="font-size: 7.5pt; color: var(--cyan-accent); font-weight: 600;">In Flight / Homeward</span>
+              <span style="font-weight: 700; color: #0f172a; font-size: 9pt;">DAY 8: MOSCOW DEPARTURE → RETURN FLIGHT TO INDIA</span>
+              <span style="font-size: 7.5pt; color: #0284c7; font-weight: 700;">In Flight / Homeward</span>
             </div>
             <div style="font-size: 7.3pt; color: var(--text-secondary);">Airport transfer to Moscow Vnukovo • International departure flight via Baku • Touchdown in India with unforgettable memories</div>
           </div>
@@ -718,19 +713,19 @@ const htmlContent = `<!DOCTYPE html>
     </div>
 
     <div class="page-body" style="gap: 10px;">
-      <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 6px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid rgba(15, 23, 42, 0.08); padding-bottom: 6px;">
         <div>
           <div style="font-size: 7.8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">International Flight Dossier</div>
-          <h2 class="font-serif" style="font-size: 19pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em; line-height: 1.1;">
+          <h2 class="font-serif" style="font-size: 19pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em; line-height: 1.1;">
             AZERBAIJAN AIRLINES: BOM ⇄ VKO
           </h2>
           <p style="font-size: 8.2pt; color: var(--text-secondary); margin-top: 2px;">
             Round-trip international flight connectivity connecting Mumbai to Moscow Vnukovo via Baku.
           </p>
         </div>
-        <div style="text-align: right; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 6px; padding: 4px 10px;">
-          <div style="font-size: 6.2pt; text-transform: uppercase; letter-spacing: 0.12em; color: #6ee7b7; font-weight: 700;">Return Fare (Per Pax)</div>
-          <div style="font-size: 13pt; font-weight: 800; color: #ffffff; line-height: 1.1;">USD 532 <span style="font-size: 7.5pt; color: #a7f3d0; font-weight: 600;">/ PERSON</span></div>
+        <div style="text-align: right; background: #ecfdf5; border: 1.5px solid #10b981; border-radius: 6px; padding: 4px 10px;">
+          <div style="font-size: 6.2pt; text-transform: uppercase; letter-spacing: 0.12em; color: #047857; font-weight: 700;">Return Fare (Per Pax)</div>
+          <div style="font-size: 13pt; font-weight: 800; color: #065f46; line-height: 1.1;">USD 532 <span style="font-size: 7.5pt; color: #047857; font-weight: 600;">/ PERSON</span></div>
         </div>
       </div>
 
@@ -763,134 +758,106 @@ const htmlContent = `<!DOCTYPE html>
               </div>
             </div>
 
-            <div class="bp-itinerary">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
               <!-- Leg 1 -->
-              <div class="bp-leg">
+              <div class="bp-flight-leg">
                 <div class="bp-station">
                   <div class="bp-time">02:10 <span class="ampm">AM</span></div>
                   <div class="bp-date">15 JAN 2026</div>
-                  <div class="bp-airport-code">BOM</div>
-                  <div class="bp-city">Mumbai, India <span class="bp-terminal">(T2)</span></div>
+                  <div class="bp-code">BOM</div>
+                  <div class="bp-city">Mumbai, India (T2)</div>
                 </div>
-
-                <div class="bp-flight-mid">
-                  <div class="bp-duration">5h 10m duration</div>
-                  <div class="bp-flight-line">
-                    <span class="bp-line-dot"></span>
-                    <span class="bp-line-rule"></span>
+                <div class="bp-mid">
+                  <div class="bp-duration-tag">⏱ 5h 10m duration</div>
+                  <div class="bp-flight-vector">
+                    <div class="bp-dot"></div>
+                    <div class="bp-rule"></div>
                     <span class="bp-plane-icon">✈</span>
-                    <span class="bp-line-rule"></span>
-                    <span class="bp-line-dot"></span>
+                    <div class="bp-rule"></div>
+                    <div class="bp-dot"></div>
                   </div>
                   <div class="bp-flight-no">Flight <strong>J2 60</strong></div>
-                  <div class="bp-aircraft">Airbus A320neo</div>
+                  <div class="bp-equipment">Airbus A320neo</div>
                 </div>
-
                 <div class="bp-station right">
                   <div class="bp-time">05:50 <span class="ampm">AM</span></div>
                   <div class="bp-date">15 JAN 2026</div>
-                  <div class="bp-airport-code">GYD</div>
-                  <div class="bp-city">Baku, Azerbaijan <span class="bp-terminal">(T1)</span></div>
+                  <div class="bp-code">GYD</div>
+                  <div class="bp-city">Baku, Azerbaijan (T1)</div>
                 </div>
               </div>
 
-              <!-- Layover Bar -->
-              <div class="bp-transfer-bar">
-                <div class="bp-transfer-tag">
+              <!-- Connection Bar -->
+              <div class="bp-connection-bar">
+                <div class="bp-conn-left">
                   <span>🌙 AIRSIDE TRANSIT IN BAKU (GYD)</span>
                 </div>
-                <div class="bp-transfer-duration"><strong>2h 10m</strong> Connection Layover</div>
-                <div class="bp-transfer-note">Transit without visa (Indian Passports)</div>
+                <div class="bp-conn-center">2h 10m Layover</div>
+                <div class="bp-conn-right">Transit without visa (Indian Passports)</div>
               </div>
 
               <!-- Leg 2 -->
-              <div class="bp-leg">
+              <div class="bp-flight-leg">
                 <div class="bp-station">
                   <div class="bp-time">08:00 <span class="ampm">AM</span></div>
                   <div class="bp-date">15 JAN 2026</div>
-                  <div class="bp-airport-code">GYD</div>
-                  <div class="bp-city">Baku, Azerbaijan <span class="bp-terminal">(T1)</span></div>
+                  <div class="bp-code">GYD</div>
+                  <div class="bp-city">Baku, Azerbaijan (T1)</div>
                 </div>
-
-                <div class="bp-flight-mid">
-                  <div class="bp-duration">3h 30m duration</div>
-                  <div class="bp-flight-line">
-                    <span class="bp-line-dot"></span>
-                    <span class="bp-line-rule"></span>
+                <div class="bp-mid">
+                  <div class="bp-duration-tag">⏱ 3h 30m duration</div>
+                  <div class="bp-flight-vector">
+                    <div class="bp-dot"></div>
+                    <div class="bp-rule"></div>
                     <span class="bp-plane-icon">✈</span>
-                    <span class="bp-line-rule"></span>
-                    <span class="bp-line-dot"></span>
+                    <div class="bp-rule"></div>
+                    <div class="bp-dot"></div>
                   </div>
                   <div class="bp-flight-no">Flight <strong>J2 807</strong></div>
-                  <div class="bp-aircraft">Airbus A319</div>
+                  <div class="bp-equipment">Airbus A319</div>
                 </div>
-
                 <div class="bp-station right">
                   <div class="bp-time">10:30 <span class="ampm">AM</span></div>
                   <div class="bp-date">15 JAN 2026</div>
-                  <div class="bp-airport-code">VKO</div>
-                  <div class="bp-city">Moscow, Russia <span class="bp-terminal">(Terminal A)</span></div>
+                  <div class="bp-code">VKO</div>
+                  <div class="bp-city">Moscow, Russia (T-A)</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Perforated Tear-off Stub -->
+          <!-- Tear-off Stub -->
           <div class="bp-stub">
-            <div class="bp-stub-top">
-              <div class="bp-stub-pax-label">BOARDING PASS STUB</div>
-              <div class="bp-stub-fare-title">PER PAX RETURN FARE</div>
-              <div class="bp-stub-price">USD 532</div>
-              <div class="bp-stub-price-sub">PER PERSON (~₹44,500)</div>
+            <div class="bp-stub-head">
+              <div class="bp-stub-tag">BOARDING PASS STUB</div>
+              <div class="bp-stub-carrier">AZERBAIJAN AIRLINES</div>
             </div>
-
+            <div class="bp-stub-fare-block">
+              <div class="bp-stub-fare-lbl">Return Airfare (Per Pax)</div>
+              <div class="bp-stub-fare-val">USD 532</div>
+              <div class="bp-stub-fare-sub">PER PERSON (~₹44,500)</div>
+            </div>
             <div class="bp-stub-specs">
-              <div class="bp-stub-row">
-                <span class="lbl">PASSENGERS:</span>
-                <span class="val">2 Adults</span>
-              </div>
-              <div class="bp-stub-row">
-                <span class="lbl">CABIN BAG:</span>
-                <span class="val highlight">1 × 10 kg Included</span>
-              </div>
-              <div class="bp-stub-row">
-                <span class="lbl">CHECKED:</span>
-                <span class="val not-inc">Optional Add-on</span>
-              </div>
-              <div class="bp-stub-row">
-                <span class="lbl">BOOKING:</span>
-                <span class="val">NOMAD-AZ-2026</span>
-              </div>
+              <div class="bp-stub-row"><span class="lbl">PASSENGERS:</span><span class="val">2 Adults</span></div>
+              <div class="bp-stub-row"><span class="lbl">CABIN BAG:</span><span class="val highlight">1 × 10 kg Included</span></div>
+              <div class="bp-stub-row"><span class="lbl">CHECKED BAG:</span><span class="val not-inc">Optional Add-on</span></div>
+              <div class="bp-stub-row"><span class="lbl">BOOKING REF:</span><span class="val">NOMAD-AZ-2026</span></div>
             </div>
-
             <div class="bp-stub-barcode-wrap">
               <svg class="bp-barcode" viewBox="0 0 120 22" fill="#1e293b">
-  <rect x="0" y="0" width="3" height="22"/>
-  <rect x="5" y="0" width="1.5" height="22"/>
-  <rect x="9" y="0" width="4" height="22"/>
-  <rect x="15" y="0" width="1.5" height="22"/>
-  <rect x="18" y="0" width="3" height="22"/>
-  <rect x="23" y="0" width="1" height="22"/>
-  <rect x="26" y="0" width="4.5" height="22"/>
-  <rect x="33" y="0" width="1.5" height="22"/>
-  <rect x="36" y="0" width="3" height="22"/>
-  <rect x="41" y="0" width="2" height="22"/>
-  <rect x="45" y="0" width="4" height="22"/>
-  <rect x="51" y="0" width="1.5" height="22"/>
-  <rect x="54" y="0" width="3" height="22"/>
-  <rect x="59" y="0" width="1" height="22"/>
-  <rect x="62" y="0" width="5" height="22"/>
-  <rect x="69" y="0" width="2" height="22"/>
-  <rect x="73" y="0" width="3" height="22"/>
-  <rect x="78" y="0" width="1.5" height="22"/>
-  <rect x="82" y="0" width="4" height="22"/>
-  <rect x="88" y="0" width="2" height="22"/>
-  <rect x="92" y="0" width="1.5" height="22"/>
-  <rect x="95" y="0" width="3.5" height="22"/>
-  <rect x="101" y="0" width="1.5" height="22"/>
-  <rect x="105" y="0" width="4" height="22"/>
-  <rect x="111" y="0" width="2" height="22"/>
-  <rect x="115" y="0" width="3" height="22"/>
+  <rect x="0" y="0" width="3" height="22"/><rect x="5" y="0" width="1.5" height="22"/>
+  <rect x="9" y="0" width="4" height="22"/><rect x="15" y="0" width="1.5" height="22"/>
+  <rect x="18" y="0" width="3" height="22"/><rect x="23" y="0" width="1" height="22"/>
+  <rect x="26" y="0" width="4.5" height="22"/><rect x="33" y="0" width="1.5" height="22"/>
+  <rect x="36" y="0" width="3" height="22"/><rect x="41" y="0" width="2" height="22"/>
+  <rect x="45" y="0" width="4" height="22"/><rect x="51" y="0" width="1.5" height="22"/>
+  <rect x="54" y="0" width="3" height="22"/><rect x="59" y="0" width="1" height="22"/>
+  <rect x="62" y="0" width="5" height="22"/><rect x="69" y="0" width="2" height="22"/>
+  <rect x="73" y="0" width="3" height="22"/><rect x="78" y="0" width="1.5" height="22"/>
+  <rect x="82" y="0" width="4" height="22"/><rect x="88" y="0" width="2" height="22"/>
+  <rect x="92" y="0" width="1.5" height="22"/><rect x="95" y="0" width="3.5" height="22"/>
+  <rect x="101" y="0" width="1.5" height="22"/><rect x="105" y="0" width="4" height="22"/>
+  <rect x="111" y="0" width="2" height="22"/><rect x="115" y="0" width="3" height="22"/>
 </svg>
               <div class="bp-barcode-no">J2 • 060 • 807 • BOM-VKO</div>
             </div>
@@ -923,134 +890,106 @@ const htmlContent = `<!DOCTYPE html>
               </div>
             </div>
 
-            <div class="bp-itinerary">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
               <!-- Leg 1 -->
-              <div class="bp-leg">
+              <div class="bp-flight-leg">
                 <div class="bp-station">
                   <div class="bp-time">11:30 <span class="ampm">AM</span></div>
                   <div class="bp-date">23 JAN 2026</div>
-                  <div class="bp-airport-code">VKO</div>
-                  <div class="bp-city">Moscow, Russia <span class="bp-terminal">(Terminal A)</span></div>
+                  <div class="bp-code">VKO</div>
+                  <div class="bp-city">Moscow, Russia (T-A)</div>
                 </div>
-
-                <div class="bp-flight-mid">
-                  <div class="bp-duration">3h 35m duration</div>
-                  <div class="bp-flight-line">
-                    <span class="bp-line-dot"></span>
-                    <span class="bp-line-rule"></span>
+                <div class="bp-mid">
+                  <div class="bp-duration-tag">⏱ 3h 35m duration</div>
+                  <div class="bp-flight-vector">
+                    <div class="bp-dot"></div>
+                    <div class="bp-rule"></div>
                     <span class="bp-plane-icon">✈</span>
-                    <span class="bp-line-rule"></span>
-                    <span class="bp-line-dot"></span>
+                    <div class="bp-rule"></div>
+                    <div class="bp-dot"></div>
                   </div>
                   <div class="bp-flight-no">Flight <strong>J2 808</strong></div>
-                  <div class="bp-aircraft">Boeing 767-300</div>
+                  <div class="bp-equipment">Boeing 767-300</div>
                 </div>
-
                 <div class="bp-station right">
                   <div class="bp-time">04:05 <span class="ampm">PM</span></div>
                   <div class="bp-date">23 JAN 2026</div>
-                  <div class="bp-airport-code">GYD</div>
-                  <div class="bp-city">Baku, Azerbaijan <span class="bp-terminal">(T1)</span></div>
+                  <div class="bp-code">GYD</div>
+                  <div class="bp-city">Baku, Azerbaijan (T1)</div>
                 </div>
               </div>
 
-              <!-- Layover Bar -->
-              <div class="bp-transfer-bar">
-                <div class="bp-transfer-tag">
+              <!-- Connection Bar -->
+              <div class="bp-connection-bar">
+                <div class="bp-conn-left">
                   <span>⏱ AIRSIDE TRANSIT IN BAKU (GYD)</span>
                 </div>
-                <div class="bp-transfer-duration"><strong>3h 05m</strong> Connection Layover</div>
-                <div class="bp-transfer-note">Baku Heydar Aliyev Terminal 1</div>
+                <div class="bp-conn-center">3h 05m Layover</div>
+                <div class="bp-conn-right">Baku Heydar Aliyev Terminal 1</div>
               </div>
 
               <!-- Leg 2 -->
-              <div class="bp-leg">
+              <div class="bp-flight-leg">
                 <div class="bp-station">
                   <div class="bp-time">07:10 <span class="ampm">PM</span></div>
                   <div class="bp-date">23 JAN 2026</div>
-                  <div class="bp-airport-code">GYD</div>
-                  <div class="bp-city">Baku, Azerbaijan <span class="bp-terminal">(T1)</span></div>
+                  <div class="bp-code">GYD</div>
+                  <div class="bp-city">Baku, Azerbaijan (T1)</div>
                 </div>
-
-                <div class="bp-flight-mid">
-                  <div class="bp-duration">4h 30m duration</div>
-                  <div class="bp-flight-line">
-                    <span class="bp-line-dot"></span>
-                    <span class="bp-line-rule"></span>
+                <div class="bp-mid">
+                  <div class="bp-duration-tag">⏱ 4h 30m duration</div>
+                  <div class="bp-flight-vector">
+                    <div class="bp-dot"></div>
+                    <div class="bp-rule"></div>
                     <span class="bp-plane-icon">✈</span>
-                    <span class="bp-line-rule"></span>
-                    <span class="bp-line-dot"></span>
+                    <div class="bp-rule"></div>
+                    <div class="bp-dot"></div>
                   </div>
                   <div class="bp-flight-no">Flight <strong>J2 59</strong></div>
-                  <div class="bp-aircraft">Airbus A320neo</div>
+                  <div class="bp-equipment">Airbus A320neo</div>
                 </div>
-
                 <div class="bp-station right">
                   <div class="bp-time">01:10 <span class="ampm">AM</span></div>
                   <div class="bp-date overnight">24 JAN 2026 (+1)</div>
-                  <div class="bp-airport-code">BOM</div>
-                  <div class="bp-city">Mumbai, India <span class="bp-terminal">(T2)</span></div>
+                  <div class="bp-code">BOM</div>
+                  <div class="bp-city">Mumbai, India (T2)</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Perforated Tear-off Stub -->
+          <!-- Tear-off Stub -->
           <div class="bp-stub">
-            <div class="bp-stub-top">
-              <div class="bp-stub-pax-label">BOARDING PASS STUB</div>
-              <div class="bp-stub-fare-title">PER PAX RETURN FARE</div>
-              <div class="bp-stub-price">USD 532</div>
-              <div class="bp-stub-price-sub">PER PERSON (~₹44,500)</div>
+            <div class="bp-stub-head">
+              <div class="bp-stub-tag">BOARDING PASS STUB</div>
+              <div class="bp-stub-carrier">AZERBAIJAN AIRLINES</div>
             </div>
-
+            <div class="bp-stub-fare-block">
+              <div class="bp-stub-fare-lbl">Return Airfare (Per Pax)</div>
+              <div class="bp-stub-fare-val">USD 532</div>
+              <div class="bp-stub-fare-sub">PER PERSON (~₹44,500)</div>
+            </div>
             <div class="bp-stub-specs">
-              <div class="bp-stub-row">
-                <span class="lbl">PASSENGERS:</span>
-                <span class="val">2 Adults</span>
-              </div>
-              <div class="bp-stub-row">
-                <span class="lbl">CABIN BAG:</span>
-                <span class="val highlight">1 × 10 kg Included</span>
-              </div>
-              <div class="bp-stub-row">
-                <span class="lbl">CHECKED:</span>
-                <span class="val not-inc">Optional Add-on</span>
-              </div>
-              <div class="bp-stub-row">
-                <span class="lbl">JOURNEY:</span>
-                <span class="val">11h 10m Transit</span>
-              </div>
+              <div class="bp-stub-row"><span class="lbl">PASSENGERS:</span><span class="val">2 Adults</span></div>
+              <div class="bp-stub-row"><span class="lbl">CABIN BAG:</span><span class="val highlight">1 × 10 kg Included</span></div>
+              <div class="bp-stub-row"><span class="lbl">CHECKED BAG:</span><span class="val not-inc">Optional Add-on</span></div>
+              <div class="bp-stub-row"><span class="lbl">TRANSIT:</span><span class="val">11h 10m Total</span></div>
             </div>
-
             <div class="bp-stub-barcode-wrap">
               <svg class="bp-barcode" viewBox="0 0 120 22" fill="#1e293b">
-  <rect x="0" y="0" width="3" height="22"/>
-  <rect x="5" y="0" width="1.5" height="22"/>
-  <rect x="9" y="0" width="4" height="22"/>
-  <rect x="15" y="0" width="1.5" height="22"/>
-  <rect x="18" y="0" width="3" height="22"/>
-  <rect x="23" y="0" width="1" height="22"/>
-  <rect x="26" y="0" width="4.5" height="22"/>
-  <rect x="33" y="0" width="1.5" height="22"/>
-  <rect x="36" y="0" width="3" height="22"/>
-  <rect x="41" y="0" width="2" height="22"/>
-  <rect x="45" y="0" width="4" height="22"/>
-  <rect x="51" y="0" width="1.5" height="22"/>
-  <rect x="54" y="0" width="3" height="22"/>
-  <rect x="59" y="0" width="1" height="22"/>
-  <rect x="62" y="0" width="5" height="22"/>
-  <rect x="69" y="0" width="2" height="22"/>
-  <rect x="73" y="0" width="3" height="22"/>
-  <rect x="78" y="0" width="1.5" height="22"/>
-  <rect x="82" y="0" width="4" height="22"/>
-  <rect x="88" y="0" width="2" height="22"/>
-  <rect x="92" y="0" width="1.5" height="22"/>
-  <rect x="95" y="0" width="3.5" height="22"/>
-  <rect x="101" y="0" width="1.5" height="22"/>
-  <rect x="105" y="0" width="4" height="22"/>
-  <rect x="111" y="0" width="2" height="22"/>
-  <rect x="115" y="0" width="3" height="22"/>
+  <rect x="0" y="0" width="3" height="22"/><rect x="5" y="0" width="1.5" height="22"/>
+  <rect x="9" y="0" width="4" height="22"/><rect x="15" y="0" width="1.5" height="22"/>
+  <rect x="18" y="0" width="3" height="22"/><rect x="23" y="0" width="1" height="22"/>
+  <rect x="26" y="0" width="4.5" height="22"/><rect x="33" y="0" width="1.5" height="22"/>
+  <rect x="36" y="0" width="3" height="22"/><rect x="41" y="0" width="2" height="22"/>
+  <rect x="45" y="0" width="4" height="22"/><rect x="51" y="0" width="1.5" height="22"/>
+  <rect x="54" y="0" width="3" height="22"/><rect x="59" y="0" width="1" height="22"/>
+  <rect x="62" y="0" width="5" height="22"/><rect x="69" y="0" width="2" height="22"/>
+  <rect x="73" y="0" width="3" height="22"/><rect x="78" y="0" width="1.5" height="22"/>
+  <rect x="82" y="0" width="4" height="22"/><rect x="88" y="0" width="2" height="22"/>
+  <rect x="92" y="0" width="1.5" height="22"/><rect x="95" y="0" width="3.5" height="22"/>
+  <rect x="101" y="0" width="1.5" height="22"/><rect x="105" y="0" width="4" height="22"/>
+  <rect x="111" y="0" width="2" height="22"/><rect x="115" y="0" width="3" height="22"/>
 </svg>
               <div class="bp-barcode-no">J2 • 808 • 059 • VKO-BOM</div>
             </div>
@@ -1059,8 +998,8 @@ const htmlContent = `<!DOCTYPE html>
 
       </div>
 
-      <div style="background: rgba(15, 29, 50, 0.75); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 6px 12px; font-size: 7.2pt; color: var(--text-secondary); line-height: 1.4;">
-        <strong style="color: #ffffff;">Transit Protocol:</strong> Azerbaijan Airlines connection at Baku Heydar Aliyev International Airport is airside and does not require an Azerbaijan transit visa for Indian passport holders.
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; padding: 6px 12px; font-size: 7.2pt; color: #475569; line-height: 1.4;">
+        <strong style="color: #0f172a;">Transit Protocol:</strong> Azerbaijan Airlines connection at Baku Heydar Aliyev International Airport is airside and does not require an Azerbaijan transit visa for Indian passport holders.
       </div>
     </div>
 
@@ -1084,7 +1023,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="page-body" style="gap: 12px;">
       <div>
         <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">Day 1 & Day 7 • Capital Immersion</div>
-        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           MOSCOW: ARRIVAL, RED SQUARE & FINALE
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary);">
@@ -1093,9 +1032,9 @@ const htmlContent = `<!DOCTYPE html>
       </div>
 
       <!-- Hero Photo Frame -->
-      <div style="height: 180px; border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.15);">
+      <div style="height: 180px; border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(15, 23, 42, 0.08);">
         <img src="assets/moscow_red_square.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Saint Basil Cathedral Red Square Moscow in Winter">
-        <div style="position: absolute; bottom: 8px; left: 12px; background: rgba(5,11,20,0.8); padding: 4px 10px; border-radius: 4px; font-size: 7.5pt; color: #ffffff; font-weight: 600;">
+        <div style="position: absolute; bottom: 8px; left: 12px; background: rgba(15, 23, 42, 0.85); padding: 4px 10px; border-radius: 4px; font-size: 7.5pt; color: #ffffff; font-weight: 600;">
           Red Square & Saint Basil’s Cathedral at Winter Twilight
         </div>
       </div>
@@ -1104,37 +1043,37 @@ const htmlContent = `<!DOCTYPE html>
       <div class="card-grid-2">
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-weight: 700; color: var(--cyan-accent); font-size: 9pt;">DAY 1: ARRIVAL & STAY</span>
-            <span style="font-size: 7pt; background: rgba(56,189,248,0.15); color: var(--cyan-accent); padding: 2px 6px; border-radius: 3px;">Fly from India</span>
+            <span style="font-weight: 700; color: #0284c7; font-size: 9pt;">DAY 1: ARRIVAL & STAY</span>
+            <span style="font-size: 7pt; background: #e0f2fe; color: #0284c7; padding: 2px 6px; border-radius: 3px; font-weight: 700;">Fly from India</span>
           </div>
-          <ul style="list-style: none; font-size: 7.8pt; color: #cbd5e1; display: flex; flex-direction: column; gap: 5px;">
-            <li><strong style="color: #ffffff;">Fly from India:</strong> Departure via Baku to Moscow Vnukovo (VKO).</li>
-            <li><strong style="color: #ffffff;">Reach Moscow:</strong> Airport arrival at 10:30 AM, transfer to hotel.</li>
-            <li><strong style="color: #ffffff;">Hotel Check-in & Stay:</strong> Freshen up and relax after your journey.</li>
-            <li><strong style="color: #ffffff;">Red Square & Kremlin:</strong> Twilight stroll past ancient brick towers & cobblestones.</li>
-            <li><strong style="color: #ffffff;">GUM Center & Winter Walk:</strong> Festive illuminations, holiday music, hot cocoa.</li>
-            <li><strong style="color: #ffffff;">Dinner & Overnight:</strong> Moscow stay.</li>
+          <ul style="list-style: none; font-size: 7.8pt; color: #334155; display: flex; flex-direction: column; gap: 5px;">
+            <li><strong style="color: #0f172a;">Fly from India:</strong> Departure via Baku to Moscow Vnukovo (VKO).</li>
+            <li><strong style="color: #0f172a;">Reach Moscow:</strong> Airport arrival at 10:30 AM, transfer to hotel.</li>
+            <li><strong style="color: #0f172a;">Hotel Check-in & Stay:</strong> Freshen up and relax after your journey.</li>
+            <li><strong style="color: #0f172a;">Red Square & Kremlin:</strong> Twilight stroll past ancient brick towers & cobblestones.</li>
+            <li><strong style="color: #0f172a;">GUM Center & Winter Walk:</strong> Festive illuminations, holiday music, hot cocoa.</li>
+            <li><strong style="color: #0f172a;">Dinner & Overnight:</strong> Moscow stay.</li>
           </ul>
         </div>
 
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-weight: 700; color: var(--gold); font-size: 9pt;">DAY 7: SAPSAN RETURN & SHOPPING</span>
-            <span style="font-size: 7pt; background: rgba(245,158,11,0.15); color: var(--gold); padding: 2px 6px; border-radius: 3px;">Purchases & Stay</span>
+            <span style="font-weight: 700; color: #b45309; font-size: 9pt;">DAY 7: SAPSAN RETURN & SHOPPING</span>
+            <span style="font-size: 7pt; background: #fef3c7; color: #b45309; padding: 2px 6px; border-radius: 3px; font-weight: 700;">Purchases & Stay</span>
           </div>
-          <ul style="list-style: none; font-size: 7.8pt; color: #cbd5e1; display: flex; flex-direction: column; gap: 5px;">
-            <li><strong style="color: #ffffff;">Sapsan Express:</strong> 250 km/h bullet train from St Petersburg back to Moscow (₹5,000 / pax).</li>
-            <li><strong style="color: #ffffff;">Izmailovsky Kremlin Market:</strong> Fairytale wooden towers, artisan souvenirs, nesting dolls & amber jewelry.</li>
-            <li><strong style="color: #ffffff;">Shopping & Purchases:</strong> Winter shawls, Russian delicacies & gifts.</li>
-            <li><strong style="color: #ffffff;">Moscow Sightseeing:</strong> Old Arbat Street & Bolshoi Theatre area.</li>
-            <li><strong style="color: #ffffff;">Overnight:</strong> Stay at Moscow hotel.</li>
+          <ul style="list-style: none; font-size: 7.8pt; color: #334155; display: flex; flex-direction: column; gap: 5px;">
+            <li><strong style="color: #0f172a;">Sapsan Express:</strong> 250 km/h bullet train from St Petersburg back to Moscow (₹5,000 / pax).</li>
+            <li><strong style="color: #0f172a;">Izmailovsky Kremlin Market:</strong> Fairytale wooden towers, artisan souvenirs, nesting dolls & amber jewelry.</li>
+            <li><strong style="color: #0f172a;">Shopping & Purchases:</strong> Winter shawls, Russian delicacies & gifts.</li>
+            <li><strong style="color: #0f172a;">Moscow Sightseeing:</strong> Old Arbat Street & Bolshoi Theatre area.</li>
+            <li><strong style="color: #0f172a;">Overnight:</strong> Stay at Moscow hotel.</li>
           </ul>
         </div>
       </div>
 
-      <div style="background: rgba(15, 29, 50, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #94a3b8; display: flex; justify-content: space-between;">
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #475569; display: flex; justify-content: space-between;">
         <span><strong>Per Pax Sightseeing Ticket Budget:</strong> ₹1,000 / Pax</span>
-        <span style="color: var(--gold); font-weight: 700;">Moscow Accommodation: ₹2,500 – ₹5,000 / Night / Pax</span>
+        <span style="color: #b45309; font-weight: 700;">Moscow Accommodation: ₹2,500 – ₹5,000 / Night / Pax</span>
       </div>
     </div>
 
@@ -1157,8 +1096,8 @@ const htmlContent = `<!DOCTYPE html>
 
     <div class="page-body" style="gap: 12px;">
       <div>
-        <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: #10b981; font-weight: 700; margin-bottom: 2px;">Day 2 • Polar Circle Frontier</div>
-        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: #059669; font-weight: 700; margin-bottom: 2px;">Day 2 • Polar Circle Frontier</div>
+        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           MURMANSK: LENIN ICEBREAKER & AURORA
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary);">
@@ -1167,9 +1106,9 @@ const htmlContent = `<!DOCTYPE html>
       </div>
 
       <!-- Hero Photo Frame -->
-      <div style="height: 180px; border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(16,185,129,0.3);">
+      <div style="height: 180px; border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(15, 23, 42, 0.08);">
         <img src="assets/cover_aurora.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Aurora Borealis over snowy Murmansk taiga">
-        <div style="position: absolute; bottom: 8px; left: 12px; background: rgba(5,11,20,0.85); padding: 4px 10px; border-radius: 4px; font-size: 7.5pt; color: #34d399; font-weight: 600;">
+        <div style="position: absolute; bottom: 8px; left: 12px; background: rgba(15, 23, 42, 0.85); padding: 4px 10px; border-radius: 4px; font-size: 7.5pt; color: #34d399; font-weight: 600;">
           Aurora Borealis dancing over snow-laden pine forests of Murmansk
         </div>
       </div>
@@ -1178,27 +1117,27 @@ const htmlContent = `<!DOCTYPE html>
       <div class="card-grid-2">
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-weight: 700; color: var(--cyan-accent); font-size: 9pt;">DAY 2: FLY NORTH & ICEBREAKER</span>
-            <span style="font-size: 7pt; background: rgba(56,189,248,0.15); color: var(--cyan-accent); padding: 2px 6px; border-radius: 3px;">Daytime Program</span>
+            <span style="font-weight: 700; color: #0284c7; font-size: 9pt;">DAY 2: FLY NORTH & ICEBREAKER</span>
+            <span style="font-size: 7pt; background: #e0f2fe; color: #0284c7; padding: 2px 6px; border-radius: 3px; font-weight: 700;">Daytime Program</span>
           </div>
-          <ul style="list-style: none; font-size: 7.8pt; color: #cbd5e1; display: flex; flex-direction: column; gap: 5px;">
-            <li><strong style="color: #ffffff;">Fly to Murmansk:</strong> Morning flight Aeroflot SU-1322 (09:25–12:15) crossing into the Arctic Circle. <em style="color: #10b981;">(Included in ₹91,000 package).</em></li>
-            <li><strong style="color: #ffffff;">Arrival & Hotel Check-in:</strong> Meet & transfer to central Murmansk hotel.</li>
-            <li><strong style="color: #ffffff;">Lenin Nuclear Icebreaker:</strong> Visit the historic, world-first nuclear-powered icebreaker vessel permanently moored on Kola Bay.</li>
-            <li><strong style="color: #ffffff;">Alyosha Monument:</strong> Panoramic clifftop views over Murmansk city harbor.</li>
-            <li><strong style="color: #ffffff;">Local Yandex Transport:</strong> Budget ₹300 / Pax.</li>
+          <ul style="list-style: none; font-size: 7.8pt; color: #334155; display: flex; flex-direction: column; gap: 5px;">
+            <li><strong style="color: #0f172a;">Fly to Murmansk:</strong> Morning flight Aeroflot SU-1322 (09:25–12:15) crossing into the Arctic Circle. <em style="color: #059669; font-weight: 700;">(Included in ₹91,000 package).</em></li>
+            <li><strong style="color: #0f172a;">Arrival & Hotel Check-in:</strong> Meet & transfer to central Murmansk hotel.</li>
+            <li><strong style="color: #0f172a;">Lenin Nuclear Icebreaker:</strong> Visit the historic, world-first nuclear-powered icebreaker vessel permanently moored on Kola Bay.</li>
+            <li><strong style="color: #0f172a;">Alyosha Monument:</strong> Panoramic clifftop views over Murmansk city harbor.</li>
+            <li><strong style="color: #0f172a;">Local Yandex Transport:</strong> Budget ₹300 / Pax.</li>
           </ul>
         </div>
 
-        <div class="glass-card" style="border-color: rgba(16,185,129,0.3);">
+        <div class="glass-card" style="border-color: #86efac;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-weight: 700; color: #34d399; font-size: 9pt;">NORTHERN LIGHTS HUNTING</span>
-            <span style="font-size: 7pt; background: rgba(16,185,129,0.15); color: #34d399; padding: 2px 6px; border-radius: 3px;">Night Safari</span>
+            <span style="font-weight: 700; color: #059669; font-size: 9pt;">NORTHERN LIGHTS HUNTING</span>
+            <span style="font-size: 7pt; background: #ecfdf5; color: #059669; padding: 2px 6px; border-radius: 3px; font-weight: 700;">Night Safari</span>
           </div>
-          <p style="font-size: 7.8pt; color: #cbd5e1; margin-bottom: 6px;">
+          <p style="font-size: 7.8pt; color: #334155; margin-bottom: 6px;">
             Depart after dinner into the dark wilderness beyond city illumination to intercept solar wind activity.
           </p>
-          <ul style="list-style: none; font-size: 7.6pt; color: #cbd5e1; display: flex; flex-direction: column; gap: 4px;">
+          <ul style="list-style: none; font-size: 7.6pt; color: #475569; display: flex; flex-direction: column; gap: 4px;">
             <li>✦ Guided search tracking real-time satellite solar data.</li>
             <li>✦ Long-exposure night photography assistance.</li>
             <li>✦ Warm tea, traditional snacks and hot thermos hospitality.</li>
@@ -1207,7 +1146,7 @@ const htmlContent = `<!DOCTYPE html>
         </div>
       </div>
 
-      <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #a7f3d0; display: flex; justify-content: space-between;">
+      <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #065f46; display: flex; justify-content: space-between;">
         <span><strong>Flight to Murmansk:</strong> Included in ₹91,000 Base Package</span>
         <span style="font-weight: 700;">Overnight: Murmansk Stay (₹1,750 / Pax / Night Share)</span>
       </div>
@@ -1233,7 +1172,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="page-body" style="gap: 12px;">
       <div>
         <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">Day 3 • Full-Day Arctic Immersion</div>
-        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           HUSKY PARK & NIGHT AURORA HUNTING
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary);">
@@ -1243,15 +1182,15 @@ const htmlContent = `<!DOCTYPE html>
 
       <!-- Two Image Split -->
       <div class="card-grid-2" style="height: 175px;">
-        <div style="border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.15);">
+        <div style="border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(15, 23, 42, 0.08);">
           <img src="assets/husky_sledding.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Siberian Husky Sledding in Snow">
-          <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(5,11,20,0.85); padding: 3px 8px; border-radius: 4px; font-size: 7pt; color: #ffffff; font-weight: 600;">
+          <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(15, 23, 42, 0.85); padding: 3px 8px; border-radius: 4px; font-size: 7pt; color: #ffffff; font-weight: 600;">
             Siberian Husky Dog Sledding Safari
           </div>
         </div>
-        <div style="border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.15);">
+        <div style="border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(15, 23, 42, 0.08);">
           <img src="assets/reindeer_sami.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Arctic Reindeer and Sami Lavvu Tent">
-          <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(5,11,20,0.85); padding: 3px 8px; border-radius: 4px; font-size: 7pt; color: var(--gold); font-weight: 600;">
+          <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(15, 23, 42, 0.85); padding: 3px 8px; border-radius: 4px; font-size: 7pt; color: #fef08a; font-weight: 600;">
             Reindeer Sleigh & Sami Lavvu Camp
           </div>
         </div>
@@ -1260,39 +1199,39 @@ const htmlContent = `<!DOCTYPE html>
       <!-- Day 3 Key Inclusions -->
       <div class="card-grid-3">
         <div class="glass-card">
-          <div style="font-weight: 700; color: var(--cyan-accent); font-size: 8.5pt; margin-bottom: 4px;">1. Husky Sledding</div>
-          <p style="font-size: 7.2pt; color: #cbd5e1; line-height: 1.4;">
+          <div style="font-weight: 700; color: #0284c7; font-size: 8.5pt; margin-bottom: 4px;">1. Husky Sledding</div>
+          <p style="font-size: 7.2pt; color: #334155; line-height: 1.4;">
             Meet friendly Siberian Huskies. Ride a traditional sled guided through pristine snow-draped pine trails in the Arctic wilderness.
           </p>
-          <div style="margin-top: 6px; font-size: 6.8pt; color: #10b981; font-weight: 700;">✓ INCLUDED IN PACKAGE</div>
+          <div style="margin-top: 6px; font-size: 6.8pt; color: #059669; font-weight: 700;">✓ INCLUDED IN PACKAGE</div>
         </div>
 
         <div class="glass-card">
-          <div style="font-weight: 700; color: var(--gold); font-size: 8.5pt; margin-bottom: 4px;">2. Reindeer & Sami Lunch</div>
-          <p style="font-size: 7.2pt; color: #cbd5e1; line-height: 1.4;">
+          <div style="font-weight: 700; color: #b45309; font-size: 8.5pt; margin-bottom: 4px;">2. Reindeer & Sami Lunch</div>
+          <p style="font-size: 7.2pt; color: #334155; line-height: 1.4;">
             Feed gentle reindeer with white lichen, take a sleigh ride, and relish a hot traditional Sami lunch inside a conical chum tent.
           </p>
-          <div style="margin-top: 6px; font-size: 6.8pt; color: #10b981; font-weight: 700;">✓ INCLUDED IN PACKAGE</div>
+          <div style="margin-top: 6px; font-size: 6.8pt; color: #059669; font-weight: 700;">✓ INCLUDED IN PACKAGE</div>
         </div>
 
-        <div class="glass-card" style="border-color: rgba(16,185,129,0.3);">
-          <div style="font-weight: 700; color: #34d399; font-size: 8.5pt; margin-bottom: 4px;">3. Aurora Hunting Night 2</div>
-          <p style="font-size: 7.2pt; color: #cbd5e1; line-height: 1.4;">
+        <div class="glass-card" style="border-color: #86efac;">
+          <div style="font-weight: 700; color: #059669; font-size: 8.5pt; margin-bottom: 4px;">3. Aurora Hunting Night 2</div>
+          <p style="font-size: 7.2pt; color: #334155; line-height: 1.4;">
             Second night of Northern Lights hunting into secluded polar observation clearings to maximize aurora sighting probability.
           </p>
-          <div style="margin-top: 6px; font-size: 6.8pt; color: var(--cyan-accent); font-weight: 700;">AURORA HUNTING SAFARI</div>
+          <div style="margin-top: 6px; font-size: 6.8pt; color: #0284c7; font-weight: 700;">AURORA HUNTING SAFARI</div>
         </div>
       </div>
 
       <!-- Cost Inclusion Callout -->
-      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="background: #ecfdf5; border: 1.5px solid #10b981; border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
         <div>
-          <div style="font-size: 8pt; font-weight: 700; color: #a7f3d0;">Husky Park, Sledding & Sami Experience: Full Package Inclusion</div>
-          <div style="font-size: 7.2pt; color: #e2e8f0; margin-top: 2px;">
+          <div style="font-size: 8pt; font-weight: 700; color: #065f46;">Husky Park, Sledding & Sami Experience: Full Package Inclusion</div>
+          <div style="font-size: 7.2pt; color: #334155; margin-top: 2px;">
             Fully covered in the base ₹91,000 / Pax package with no extra out-of-pocket activity costs.
           </div>
         </div>
-        <div style="font-size: 8pt; font-weight: 800; color: #10b981; white-space: nowrap; padding-left: 14px;">
+        <div style="font-size: 8.5pt; font-weight: 800; color: #047857; white-space: nowrap; padding-left: 14px;">
           ₹0 EXTRA
         </div>
       </div>
@@ -1317,8 +1256,8 @@ const htmlContent = `<!DOCTYPE html>
 
     <div class="page-body" style="gap: 12px;">
       <div>
-        <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--cyan-accent); font-weight: 700; margin-bottom: 2px;">Day 4 • Arctic Ocean Expedition</div>
-        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: #0284c7; font-weight: 700; margin-bottom: 2px;">Day 4 • Arctic Ocean Expedition</div>
+        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           TERIBERKA TRIP & STAY AT THE COAST
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary);">
@@ -1327,9 +1266,9 @@ const htmlContent = `<!DOCTYPE html>
       </div>
 
       <!-- Hero Photo Frame -->
-      <div style="height: 185px; border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(56,189,248,0.3);">
+      <div style="height: 185px; border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(15, 23, 42, 0.08);">
         <img src="assets/teriberka_beach.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Dragon Egg Beach and Arctic Windmill in Teriberka">
-        <div style="position: absolute; bottom: 8px; left: 12px; background: rgba(5,11,20,0.85); padding: 4px 10px; border-radius: 4px; font-size: 7.5pt; color: #ffffff; font-weight: 600;">
+        <div style="position: absolute; bottom: 8px; left: 12px; background: rgba(15, 23, 42, 0.85); padding: 4px 10px; border-radius: 4px; font-size: 7.5pt; color: #ffffff; font-weight: 600;">
           Dragon Egg Beach • Barents Sea Coastline & Arctic Windmill
         </div>
       </div>
@@ -1337,33 +1276,33 @@ const htmlContent = `<!DOCTYPE html>
       <!-- Day 4 Itinerary & Cost Cards -->
       <div class="card-grid-2">
         <div class="glass-card">
-          <div style="font-weight: 700; color: var(--cyan-accent); font-size: 9pt; margin-bottom: 6px;">Day 4 Expedition Features</div>
-          <ul style="list-style: none; font-size: 7.6pt; color: #cbd5e1; display: flex; flex-direction: column; gap: 5px;">
-            <li><strong style="color: #ffffff;">120 km Arctic Drive:</strong> Scenic expedition coach across polar snow fields. <em style="color:#10b981;">(Included in package).</em></li>
-            <li><strong style="color: #ffffff;">Dragon Egg Beach:</strong> Huge round glacial boulders covered with crystalline sea ice.</li>
-            <li><strong style="color: #ffffff;">Arctic Windmill:</strong> Iconic cliff-top windmill overlooking the Barents Sea.</li>
-            <li><strong style="color: #ffffff;">Teriberka Village:</strong> Historic Arctic settlement, wooden fishing ships & coast.</li>
+          <div style="font-weight: 700; color: #0284c7; font-size: 9pt; margin-bottom: 6px;">Day 4 Expedition Features</div>
+          <ul style="list-style: none; font-size: 7.6pt; color: #334155; display: flex; flex-direction: column; gap: 5px;">
+            <li><strong style="color: #0f172a;">120 km Arctic Drive:</strong> Scenic expedition coach across polar snow fields. <em style="color:#059669; font-weight:700;">(Included in package).</em></li>
+            <li><strong style="color: #0f172a;">Dragon Egg Beach:</strong> Huge round glacial boulders covered with crystalline sea ice.</li>
+            <li><strong style="color: #0f172a;">Arctic Windmill:</strong> Iconic cliff-top windmill overlooking the Barents Sea.</li>
+            <li><strong style="color: #0f172a;">Teriberka Village:</strong> Historic Arctic settlement, wooden fishing ships & coast.</li>
           </ul>
         </div>
 
-        <div class="glass-card" style="border-color: rgba(245,158,11,0.3);">
-          <div style="font-weight: 700; color: var(--gold); font-size: 9pt; margin-bottom: 6px;">Per Pax Costs & Coastal Stay</div>
-          <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 4px; margin-bottom: 8px;">
-            <div style="font-size: 8pt; font-weight: 700; color: #ffffff;">Teriberka Arctic Lunch</div>
-            <div style="font-size: 7.3pt; color: #cbd5e1; margin-top: 2px;">
+        <div class="glass-card" style="border-color: #fde68a;">
+          <div style="font-weight: 700; color: #b45309; font-size: 9pt; margin-bottom: 6px;">Per Pax Costs & Coastal Stay</div>
+          <div style="background: #fffbeb; border: 1px solid #fef3c7; padding: 8px; border-radius: 4px; margin-bottom: 8px;">
+            <div style="font-size: 8pt; font-weight: 700; color: #92400e;">Teriberka Arctic Lunch</div>
+            <div style="font-size: 7.3pt; color: #78350f; margin-top: 2px;">
               Fresh seafood lunch right beside the Barents Sea shore.
             </div>
-            <div style="font-size: 7.5pt; color: var(--gold); font-weight: 700; margin-top: 4px;">
+            <div style="font-size: 7.5pt; color: #b45309; font-weight: 800; margin-top: 4px;">
               Cost: ₹1,500 / Pax
             </div>
           </div>
-          <div style="font-size: 7.3pt; color: #cbd5e1; line-height: 1.4;">
-            <strong style="color: #ffffff;">Stay at Teriberka:</strong> Cozy polar boutique hotel right on the edge of the Arctic Ocean (₹4,250 / Pax room share).
+          <div style="font-size: 7.3pt; color: #334155; line-height: 1.4;">
+            <strong style="color: #0f172a;">Stay at Teriberka:</strong> Cozy polar boutique hotel right on the edge of the Arctic Ocean (₹4,250 / Pax room share).
           </div>
         </div>
       </div>
 
-      <div style="background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #bae6fd; display: flex; justify-content: space-between;">
+      <div style="background: #e0f2fe; border: 1px solid #bae6fd; border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #0369a1; display: flex; justify-content: space-between;">
         <span><strong>Package Included:</strong> 120 km Drive, Dragon Egg Beach, Arctic Windmill</span>
         <span style="font-weight: 700;">Overnight: Stay at Teriberka (Night 4)</span>
       </div>
@@ -1389,7 +1328,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="page-body" style="gap: 12px;">
       <div>
         <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">Days 5 & 6 • The Venice of the North</div>
-        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           ST PETERSBURG: TRANSIT & SIGHTSEEING
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary);">
@@ -1398,9 +1337,9 @@ const htmlContent = `<!DOCTYPE html>
       </div>
 
       <!-- Hero Photo Frame -->
-      <div style="height: 180px; border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.15);">
+      <div style="height: 180px; border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(15, 23, 42, 0.08);">
         <img src="assets/stpetersburg_canal.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Church of the Savior on Spilled Blood St Petersburg Winter Canal">
-        <div style="position: absolute; bottom: 8px; left: 12px; background: rgba(5,11,20,0.85); padding: 4px 10px; border-radius: 4px; font-size: 7.5pt; color: #ffffff; font-weight: 600;">
+        <div style="position: absolute; bottom: 8px; left: 12px; background: rgba(15, 23, 42, 0.85); padding: 4px 10px; border-radius: 4px; font-size: 7.5pt; color: #ffffff; font-weight: 600;">
           Church of the Savior on Spilled Blood & Griboyedov Canal in Snow
         </div>
       </div>
@@ -1409,35 +1348,35 @@ const htmlContent = `<!DOCTYPE html>
       <div class="card-grid-2">
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-weight: 700; color: var(--cyan-accent); font-size: 9pt;">DAY 5: FLY TO ST PETERSBURG & STAY</span>
-            <span style="font-size: 7pt; background: rgba(56,189,248,0.15); color: var(--cyan-accent); padding: 2px 6px; border-radius: 3px;">Coast → Imperial City</span>
+            <span style="font-weight: 700; color: #0284c7; font-size: 9pt;">DAY 5: FLY TO ST PETERSBURG & STAY</span>
+            <span style="font-size: 7pt; background: #e0f2fe; color: #0284c7; padding: 2px 6px; border-radius: 3px; font-weight: 700;">Coast → Imperial City</span>
           </div>
-          <ul style="list-style: none; font-size: 7.6pt; color: #cbd5e1; display: flex; flex-direction: column; gap: 5px;">
-            <li><strong style="color: #ffffff;">Teriberka to MMK Airport:</strong> Morning transfer across the snow road (₹3,000 / Pax).</li>
-            <li><strong style="color: #ffffff;">Domestic Flight:</strong> Murmansk → St Petersburg. <em style="color:#10b981;">(Included in ₹91k package).</em></li>
-            <li><strong style="color: #ffffff;">Stay at St Petersburg:</strong> Check-in at central boutique hotel.</li>
-            <li><strong style="color: #ffffff;">Evening Canal Walk & Boat Ride:</strong> Romantic Neva River cruise (₹800 / Pax).</li>
+          <ul style="list-style: none; font-size: 7.6pt; color: #334155; display: flex; flex-direction: column; gap: 5px;">
+            <li><strong style="color: #0f172a;">Teriberka to MMK Airport:</strong> Morning transfer across the snow road (₹3,000 / Pax).</li>
+            <li><strong style="color: #0f172a;">Domestic Flight:</strong> Murmansk → St Petersburg. <em style="color:#059669; font-weight:700;">(Included in ₹91k package).</em></li>
+            <li><strong style="color: #0f172a;">Stay at St Petersburg:</strong> Check-in at central boutique hotel.</li>
+            <li><strong style="color: #0f172a;">Evening Canal Walk & Boat Ride:</strong> Romantic Neva River cruise (₹800 / Pax).</li>
           </ul>
         </div>
 
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-weight: 700; color: var(--gold); font-size: 9pt;">DAY 6: CITY SIGHTSEEING & STAY</span>
-            <span style="font-size: 7pt; background: rgba(245,158,11,0.15); color: var(--gold); padding: 2px 6px; border-radius: 3px;">Imperial Marvels</span>
+            <span style="font-weight: 700; color: #b45309; font-size: 9pt;">DAY 6: CITY SIGHTSEEING & STAY</span>
+            <span style="font-size: 7pt; background: #fef3c7; color: #b45309; padding: 2px 6px; border-radius: 3px; font-weight: 700;">Imperial Marvels</span>
           </div>
-          <ul style="list-style: none; font-size: 7.6pt; color: #cbd5e1; display: flex; flex-direction: column; gap: 5px;">
-            <li><strong style="color: #ffffff;">Winter Palace / State Hermitage:</strong> Grand imperial halls & art masterpieces.</li>
-            <li><strong style="color: #ffffff;">Savior on Spilled Blood:</strong> Famous mosaic cathedral on the canal bank.</li>
-            <li><strong style="color: #ffffff;">Peter & Paul Fortress & St Isaac’s:</strong> Gold-domed winter skyline views.</li>
-            <li><strong style="color: #ffffff;">Entry Ticket Budget:</strong> ₹1,000 / Pax.</li>
-            <li><strong style="color: #ffffff;">Stay at St Petersburg:</strong> Second night in St Petersburg hotel.</li>
+          <ul style="list-style: none; font-size: 7.6pt; color: #334155; display: flex; flex-direction: column; gap: 5px;">
+            <li><strong style="color: #0f172a;">Winter Palace / State Hermitage:</strong> Grand imperial halls & art masterpieces.</li>
+            <li><strong style="color: #0f172a;">Savior on Spilled Blood:</strong> Famous mosaic cathedral on the canal bank.</li>
+            <li><strong style="color: #0f172a;">Peter & Paul Fortress & St Isaac’s:</strong> Gold-domed winter skyline views.</li>
+            <li><strong style="color: #0f172a;">Entry Ticket Budget:</strong> ₹1,000 / Pax.</li>
+            <li><strong style="color: #0f172a;">Stay at St Petersburg:</strong> Second night in St Petersburg hotel.</li>
           </ul>
         </div>
       </div>
 
-      <div style="background: rgba(15, 29, 50, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #94a3b8; display: flex; justify-content: space-between;">
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #475569; display: flex; justify-content: space-between;">
         <span><strong>Flight to St Petersburg:</strong> Included in ₹91,000 package</span>
-        <span style="color: var(--gold); font-weight: 700;">St Petersburg Hotel: ₹2,500 / Night / Pax share</span>
+        <span style="color: #b45309; font-weight: 700;">St Petersburg Hotel: ₹2,500 / Night / Pax share</span>
       </div>
     </div>
 
@@ -1460,8 +1399,8 @@ const htmlContent = `<!DOCTYPE html>
 
     <div class="page-body" style="gap: 12px;">
       <div>
-        <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: #a855f7; font-weight: 700; margin-bottom: 2px;">Day 7 • High-Speed Transit & Shopping</div>
-        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: #7c3aed; font-weight: 700; margin-bottom: 2px;">Day 7 • High-Speed Transit & Shopping</div>
+        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           SAPSAN TO MOSCOW & PURCHASES
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary);">
@@ -1471,15 +1410,15 @@ const htmlContent = `<!DOCTYPE html>
 
       <!-- Two Image Split -->
       <div class="card-grid-2" style="height: 175px;">
-        <div style="border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.15);">
+        <div style="border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(15, 23, 42, 0.08);">
           <img src="assets/sapsan_train.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Sapsan High Speed Bullet Train in Russian Snow">
-          <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(5,11,20,0.85); padding: 3px 8px; border-radius: 4px; font-size: 7pt; color: var(--cyan-accent); font-weight: 600;">
+          <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(15, 23, 42, 0.85); padding: 3px 8px; border-radius: 4px; font-size: 7pt; color: #38bdf8; font-weight: 600;">
             Sapsan Bullet Train (250 km/h)
           </div>
         </div>
-        <div style="border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.15);">
+        <div style="border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(15, 23, 42, 0.08);">
           <img src="assets/izmailovsky_market.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Izmailovsky Kremlin Market Moscow Winter">
-          <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(5,11,20,0.85); padding: 3px 8px; border-radius: 4px; font-size: 7pt; color: var(--gold); font-weight: 600;">
+          <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(15, 23, 42, 0.85); padding: 3px 8px; border-radius: 4px; font-size: 7pt; color: #fef08a; font-weight: 600;">
             Izmailovsky Kremlin Craft Bazaar
           </div>
         </div>
@@ -1489,36 +1428,36 @@ const htmlContent = `<!DOCTYPE html>
       <div class="card-grid-2">
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-weight: 700; color: var(--cyan-accent); font-size: 9pt;">Sapsan Bullet Train Ride</span>
-            <span style="font-size: 7.5pt; color: var(--gold); font-weight: 700;">₹5,000 / Pax</span>
+            <span style="font-weight: 700; color: #0284c7; font-size: 9pt;">Sapsan Bullet Train Ride</span>
+            <span style="font-size: 7.5pt; color: #b45309; font-weight: 700;">₹5,000 / Pax</span>
           </div>
-          <p style="font-size: 7.5pt; color: #cbd5e1; line-height: 1.4; margin-bottom: 6px;">
+          <p style="font-size: 7.5pt; color: #334155; line-height: 1.4; margin-bottom: 6px;">
             St Petersburg Moskovsky Station to Moscow Leningradsky Station in just 3h 45m. Sleek, heated ergonomic high-speed express with scenic winter forest panoramas.
           </p>
-          <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 4px; font-size: 7.2pt; color: #e2e8f0;">
-            • Cost per person: <strong style="color: #ffffff;">₹5,000</strong><br>
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 6px 10px; border-radius: 4px; font-size: 7.2pt; color: #334155;">
+            • Cost per person: <strong style="color: #0f172a;">₹5,000</strong><br>
             • High-speed comfort, power ports, and bistro car.
           </div>
         </div>
 
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-weight: 700; color: var(--gold); font-size: 9pt;">Shopping & Purchases</span>
-            <span style="font-size: 7pt; color: #cbd5e1;">Artisan Bazaar</span>
+            <span style="font-weight: 700; color: #b45309; font-size: 9pt;">Shopping & Purchases</span>
+            <span style="font-size: 7pt; color: #64748b; font-weight: 600;">Artisan Bazaar</span>
           </div>
-          <p style="font-size: 7.5pt; color: #cbd5e1; line-height: 1.4; margin-bottom: 6px;">
+          <p style="font-size: 7.5pt; color: #334155; line-height: 1.4; margin-bottom: 6px;">
             Explore the fairytale wooden citadels of Izmailovsky Market for authentic Matryoshka nesting dolls, amber, fur hats, winter souvenirs, and hot barbecue skewers.
           </p>
-          <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 4px; font-size: 7.2pt; color: #e2e8f0;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 6px 10px; border-radius: 4px; font-size: 7.2pt; color: #334155;">
             • Authentic handicrafts and unique Russian gifts.<br>
             • Final evening dinner and stay in Moscow.
           </div>
         </div>
       </div>
 
-      <div style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #e9d5ff; display: flex; justify-content: space-between;">
+      <div style="background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 6px; padding: 8px 12px; font-size: 7.5pt; color: #6d28d9; display: flex; justify-content: space-between;">
         <span><strong>Route:</strong> St Petersburg → Moscow by Sapsan (3h 45m)</span>
-        <span style="font-weight: 700; color: var(--gold);">Overnight: Moscow Stay (Night 7)</span>
+        <span style="font-weight: 700; color: #b45309;">Overnight: Moscow Stay (Night 7)</span>
       </div>
     </div>
 
@@ -1542,7 +1481,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="page-body" style="gap: 10px;">
       <div>
         <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">Chronological Day-by-Day Flow</div>
-        <h2 class="font-serif" style="font-size: 20pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <h2 class="font-serif" style="font-size: 20pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           COMPLETE 8-DAY EXPEDITION ITINERARY
         </h2>
       </div>
@@ -1559,59 +1498,59 @@ const htmlContent = `<!DOCTYPE html>
         </thead>
         <tbody>
           <tr>
-            <td><strong style="color:var(--gold);">DAY 1</strong></td>
-            <td><strong>Fly from India → Reach Moscow</strong><br><span style="color:var(--cyan-accent); font-size:6.8pt;">International Air</span></td>
+            <td><strong style="color:#b45309;">DAY 1</strong></td>
+            <td><strong style="color:#0f172a;">Fly from India → Reach Moscow</strong><br><span style="color:#0284c7; font-size:6.8pt; font-weight:600;">International Air</span></td>
             <td>Fly from India via Baku; arrive Moscow Vnukovo; hotel check-in & rest; twilight Red Square, Kremlin walls & GUM center walk; dinner.</td>
-            <td><strong style="color:var(--gold);">Stay at Moscow</strong></td>
+            <td><strong style="color:#b45309;">Stay at Moscow</strong></td>
           </tr>
           <tr>
-            <td><strong style="#10b981;">DAY 2</strong></td>
-            <td><strong>Fly to Murmansk</strong><br><span style="color:#10b981; font-size:6.8pt;">Domestic Air (SU-1322)</span></td>
+            <td><strong style="color:#059669;">DAY 2</strong></td>
+            <td><strong style="color:#0f172a;">Fly to Murmansk</strong><br><span style="color:#059669; font-size:6.8pt; font-weight:600;">Domestic Air (SU-1322)</span></td>
             <td>Fly to Murmansk; hotel check-in; visit historic Lenin Nuclear Icebreaker & Alyosha memorial; night Northern Lights hunting.</td>
-            <td><strong style="color:#10b981;">Stay at Murmansk</strong></td>
+            <td><strong style="color:#059669;">Stay at Murmansk</strong></td>
           </tr>
           <tr>
-            <td><strong style="#10b981;">DAY 3</strong></td>
-            <td><strong>Husky Park & Arctic Sledding</strong><br><span style="color:var(--text-muted); font-size:6.8pt;">Wilderness Safari</span></td>
+            <td><strong style="color:#059669;">DAY 3</strong></td>
+            <td><strong style="color:#0f172a;">Husky Park & Arctic Sledding</strong><br><span style="color:#64748b; font-size:6.8pt; font-weight:600;">Wilderness Safari</span></td>
             <td>Siberian Husky Park & dog sledding; reindeer sledding & feeding; authentic Sami hot lunch & folklore; second night Northern Lights hunt.</td>
-            <td><strong style="color:#10b981;">Stay at Murmansk</strong></td>
+            <td><strong style="color:#059669;">Stay at Murmansk</strong></td>
           </tr>
           <tr>
-            <td><strong style="color:var(--cyan-accent);">DAY 4</strong></td>
-            <td><strong>Teriberka Arctic Expedition</strong><br><span style="color:var(--cyan-accent); font-size:6.8pt;">120 km Arctic Drive</span></td>
+            <td><strong style="color:#0284c7;">DAY 4</strong></td>
+            <td><strong style="color:#0f172a;">Teriberka Arctic Expedition</strong><br><span style="color:#0284c7; font-size:6.8pt; font-weight:600;">120 km Arctic Drive</span></td>
             <td>120 km drive through polar tundra to Teriberka; Dragon Egg Beach, Arctic Windmill, Barents Sea shore; fresh Arctic seafood lunch.</td>
-            <td><strong style="color:var(--cyan-accent);">Stay at Teriberka</strong></td>
+            <td><strong style="color:#0284c7;">Stay at Teriberka</strong></td>
           </tr>
           <tr>
-            <td><strong style="color:var(--gold);">DAY 5</strong></td>
-            <td><strong>Teriberka → MMK → St Petersburg</strong><br><span style="color:#10b981; font-size:6.8pt;">Domestic Air (MMK→LED)</span></td>
+            <td><strong style="color:#b45309;">DAY 5</strong></td>
+            <td><strong style="color:#0f172a;">Teriberka → MMK → St Petersburg</strong><br><span style="color:#059669; font-size:6.8pt; font-weight:600;">Domestic Air (MMK→LED)</span></td>
             <td>Teriberka to Murmansk airport transfer; flight to St Petersburg (included); hotel check-in; evening city walk & Neva canal boat ride.</td>
-            <td><strong style="color:var(--gold);">Stay at St Petersburg</strong></td>
+            <td><strong style="color:#b45309;">Stay at St Petersburg</strong></td>
           </tr>
           <tr>
-            <td><strong style="color:var(--gold);">DAY 6</strong></td>
-            <td><strong>St Petersburg Sightseeing</strong><br><span style="color:var(--text-muted); font-size:6.8pt;">Imperial City Tour</span></td>
+            <td><strong style="color:#b45309;">DAY 6</strong></td>
+            <td><strong style="color:#0f172a;">St Petersburg Sightseeing</strong><br><span style="color:#64748b; font-size:6.8pt; font-weight:600;">Imperial City Tour</span></td>
             <td>Full-day sightseeing: Winter Palace & State Hermitage Museum, Church of the Savior on Spilled Blood, Peter & Paul Fortress, St Isaac’s.</td>
-            <td><strong style="color:var(--gold);">Stay at St Petersburg</strong></td>
+            <td><strong style="color:#b45309;">Stay at St Petersburg</strong></td>
           </tr>
           <tr>
-            <td><strong style="color:#a855f7;">DAY 7</strong></td>
-            <td><strong>St Petersburg to Moscow via Sapsan</strong><br><span style="color:#a855f7; font-size:6.8pt;">250 km/h Bullet Train</span></td>
+            <td><strong style="color:#7c3aed;">DAY 7</strong></td>
+            <td><strong style="color:#0f172a;">St Petersburg to Moscow via Sapsan</strong><br><span style="color:#7c3aed; font-size:6.8pt; font-weight:600;">250 km/h Bullet Train</span></td>
             <td>High-speed Sapsan train to Moscow; Izmailovsky Kremlin artisan craft market for purchases, souvenirs & nesting dolls; farewell dinner.</td>
-            <td><strong style="color:var(--gold);">Stay at Moscow</strong></td>
+            <td><strong style="color:#b45309;">Stay at Moscow</strong></td>
           </tr>
           <tr>
-            <td><strong style="color:var(--cyan-accent);">DAY 8</strong></td>
-            <td><strong>Departure from Moscow</strong><br><span style="color:var(--cyan-accent); font-size:6.8pt;">International Flight</span></td>
+            <td><strong style="color:#0284c7;">DAY 8</strong></td>
+            <td><strong style="color:#0f172a;">Departure from Moscow</strong><br><span style="color:#0284c7; font-size:6.8pt; font-weight:600;">International Flight</span></td>
             <td>Check out, airport transfer to Moscow Vnukovo; international departure flight back to India via Baku. Expedition concludes.</td>
-            <td><span style="color:#94a3b8;">Flight to India</span></td>
+            <td><span style="color:#64748b; font-weight:600;">Flight to India</span></td>
           </tr>
         </tbody>
       </table>
 
-      <div style="background: rgba(15, 29, 50, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 6px 12px; font-size: 7.2pt; color: #cbd5e1; display: flex; justify-content: space-between;">
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; padding: 6px 12px; font-size: 7.2pt; color: #334155; display: flex; justify-content: space-between;">
         <span><strong>Expedition Arc:</strong> India → Moscow → Murmansk → Teriberka → St Petersburg → Moscow → India</span>
-        <span style="color: var(--cyan-accent); font-weight: 700;">8 Days Core Circuit • Per Pax Basis</span>
+        <span style="color: #0284c7; font-weight: 700;">8 Days Core Circuit • Per Pax Basis</span>
       </div>
     </div>
 
@@ -1635,7 +1574,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="page-body" style="gap: 12px;">
       <div>
         <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">City-by-City Hospitality Planning</div>
-        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           ACCOMMODATION GUIDE (PER PAX COST)
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary);">
@@ -1644,75 +1583,75 @@ const htmlContent = `<!DOCTYPE html>
       </div>
 
       <!-- IMPORTANT NOTICE -->
-      <div style="background: rgba(239, 68, 68, 0.1); border: 1.5px solid rgba(239, 68, 68, 0.4); border-radius: 8px; padding: 10px 14px; font-size: 7.8pt; color: #fca5a5;">
-        <strong style="color: #ffffff;">NOTE:</strong> Accommodation is <strong>NOT included</strong> in the ₹91,000/person base package and is arranged separately. Below are the per-person costs based on double room sharing across 7 hotel nights.
+      <div style="background: #fff1f2; border: 1.5px solid #fecdd3; border-radius: 8px; padding: 10px 14px; font-size: 7.8pt; color: #9f1239;">
+        <strong style="color: #be123c;">NOTE:</strong> Accommodation is <strong>NOT included</strong> in the ₹91,000/person base package and is arranged separately. Below are the per-person costs based on double room sharing across 7 hotel nights.
       </div>
 
       <!-- City Hotel Cards Grid -->
       <div class="card-grid-2">
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-weight: 700; color: var(--cyan-accent); font-size: 9.5pt;">MOSCOW (Nights 1 & 7)</span>
-            <span style="font-size: 7.5pt; color: var(--gold); font-weight: 700;">2 Nights</span>
+            <span style="font-weight: 700; color: #0284c7; font-size: 9.5pt;">MOSCOW (Nights 1 & 7)</span>
+            <span style="font-size: 7.5pt; color: #b45309; font-weight: 700;">2 Nights</span>
           </div>
           <div style="font-size: 7.4pt; color: var(--text-secondary); margin-bottom: 6px;">Recommended: 4★ Central Moscow (Arbat / Tverskaya / Garden Ring)</div>
-          <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 4px; font-size: 7.4pt; color: #e2e8f0;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 6px 10px; border-radius: 4px; font-size: 7.4pt; color: #334155;">
             • Nightly Share: ₹2,500 – ₹5,000 / Pax / Night<br>
-            • <strong>Total for 2 Nights:</strong> <span style="color: #ffffff; font-weight: 700;">₹5,000 – ₹10,000 / Pax</span>
+            • <strong>Total for 2 Nights:</strong> <span style="color: #0f172a; font-weight: 800;">₹5,000 – ₹10,000 / Pax</span>
           </div>
         </div>
 
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-weight: 700; color: #10b981; font-size: 9.5pt;">MURMANSK (Nights 2 & 3)</span>
-            <span style="font-size: 7.5pt; color: var(--gold); font-weight: 700;">2 Nights</span>
+            <span style="font-weight: 700; color: #059669; font-size: 9.5pt;">MURMANSK (Nights 2 & 3)</span>
+            <span style="font-size: 7.5pt; color: #b45309; font-weight: 700;">2 Nights</span>
           </div>
           <div style="font-size: 7.4pt; color: var(--text-secondary); margin-bottom: 6px;">Recommended: Azimut Hotel / Park Inn Poliarnie Zori 4★</div>
-          <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 4px; font-size: 7.4pt; color: #e2e8f0;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 6px 10px; border-radius: 4px; font-size: 7.4pt; color: #334155;">
             • Nightly Share: ₹1,750 / Pax / Night<br>
-            • <strong>Total for 2 Nights:</strong> <span style="color: #ffffff; font-weight: 700;">₹3,500 / Pax</span>
+            • <strong>Total for 2 Nights:</strong> <span style="color: #0f172a; font-weight: 800;">₹3,500 / Pax</span>
           </div>
         </div>
 
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-weight: 700; color: var(--cyan-accent); font-size: 9.5pt;">TERIBERKA (Night 4)</span>
-            <span style="font-size: 7.5pt; color: var(--gold); font-weight: 700;">1 Night</span>
+            <span style="font-weight: 700; color: #0284c7; font-size: 9.5pt;">TERIBERKA (Night 4)</span>
+            <span style="font-size: 7.5pt; color: #b45309; font-weight: 700;">1 Night</span>
           </div>
           <div style="font-size: 7.4pt; color: var(--text-secondary); margin-bottom: 6px;">Recommended: Cedar Grass / Teriberka Hotel coastal lodge</div>
-          <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 4px; font-size: 7.4pt; color: #e2e8f0;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 6px 10px; border-radius: 4px; font-size: 7.4pt; color: #334155;">
             • Nightly Share: ₹4,250 / Pax / Night<br>
-            • <strong>Total for 1 Night:</strong> <span style="color: #ffffff; font-weight: 700;">₹4,250 / Pax</span>
+            • <strong>Total for 1 Night:</strong> <span style="color: #0f172a; font-weight: 800;">₹4,250 / Pax</span>
           </div>
         </div>
 
         <div class="glass-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-            <span style="font-weight: 700; color: var(--gold); font-size: 9.5pt;">ST PETERSBURG (Nights 5 & 6)</span>
-            <span style="font-size: 7.5pt; color: var(--gold); font-weight: 700;">2 Nights</span>
+            <span style="font-weight: 700; color: #b45309; font-size: 9.5pt;">ST PETERSBURG (Nights 5 & 6)</span>
+            <span style="font-size: 7.5pt; color: #b45309; font-weight: 700;">2 Nights</span>
           </div>
           <div style="font-size: 7.4pt; color: var(--text-secondary); margin-bottom: 6px;">Recommended: 4★ Historic Central Boutique (Nevsky / Fontanka)</div>
-          <div style="background: rgba(255,255,255,0.03); padding: 6px 10px; border-radius: 4px; font-size: 7.4pt; color: #e2e8f0;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 6px 10px; border-radius: 4px; font-size: 7.4pt; color: #334155;">
             • Nightly Share: ₹2,500 / Pax / Night<br>
-            • <strong>Total for 2 Nights:</strong> <span style="color: #ffffff; font-weight: 700;">₹5,000 / Pax</span>
+            • <strong>Total for 2 Nights:</strong> <span style="color: #0f172a; font-weight: 800;">₹5,000 / Pax</span>
           </div>
         </div>
       </div>
 
       <!-- AGGREGATE SUMMARY STRIP -->
-      <div style="background: linear-gradient(135deg, rgba(14, 30, 52, 0.9) 0%, rgba(6, 14, 26, 0.95) 100%); border: 1.5px solid var(--gold); border-radius: 8px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="background: #ffffff; border: 1.5px solid #d97706; border-radius: 8px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);">
         <div>
-          <div style="font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 700;">Total Hotel Investment (7 Nights Per Pax)</div>
-          <div style="font-size: 15pt; font-weight: 800; color: #ffffff; margin-top: 2px;">
-            ₹17,750 – ₹22,750 <span style="font-size: 9pt; font-weight: 600; color: var(--cyan-accent);">PER PERSON</span>
+          <div style="font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.15em; color: #b45309; font-weight: 700;">Total Hotel Investment (7 Nights Per Pax)</div>
+          <div style="font-size: 15pt; font-weight: 800; color: #0f172a; margin-top: 2px;">
+            ₹17,750 – ₹22,750 <span style="font-size: 9pt; font-weight: 600; color: #0284c7;">PER PERSON</span>
           </div>
-          <div style="font-size: 7.5pt; color: #94a3b8; margin-top: 2px;">
+          <div style="font-size: 7.5pt; color: #64748b; margin-top: 2px;">
             Shared double / twin room basis across all 7 hotel nights.
           </div>
         </div>
-        <div style="text-align: right; border-left: 1px solid rgba(255,255,255,0.15); padding-left: 18px;">
-          <div style="font-size: 7pt; text-transform: uppercase; color: var(--text-muted);">Stay Structure</div>
-          <div style="font-size: 10pt; font-weight: 800; color: #ffffff; margin-top: 2px;">
+        <div style="text-align: right; border-left: 1px solid #e2e8f0; padding-left: 18px;">
+          <div style="font-size: 7pt; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Stay Structure</div>
+          <div style="font-size: 10pt; font-weight: 800; color: #0f172a; margin-top: 2px;">
             7 Hotel Nights
           </div>
           <div style="font-size: 7pt; color: var(--text-muted);">Moscow, Murmansk, Teriberka, St Petersburg</div>
@@ -1740,7 +1679,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="page-body" style="gap: 10px;">
       <div>
         <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">Itemized Expenditure Schedule</div>
-        <h2 class="font-serif" style="font-size: 20pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <h2 class="font-serif" style="font-size: 20pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           COMPLETE COST BREAKDOWN (PER PAX)
         </h2>
       </div>
@@ -1756,72 +1695,72 @@ const htmlContent = `<!DOCTYPE html>
         </thead>
         <tbody>
           <tr>
-            <td><strong style="color:#ffffff;">Main Russia Base Package</strong><br><span style="font-size:7pt; color:var(--text-muted);">Domestic flights MMK/LED, Huskies, Reindeer, Sami Lunch, Teriberka</span></td>
+            <td><strong style="color:#0f172a;">Main Russia Base Package</strong><br><span style="font-size:7pt; color:var(--text-muted);">Domestic flights MMK/LED, Huskies, Reindeer, Sami Lunch, Teriberka</span></td>
             <td>All guided excursions & Arctic flights</td>
-            <td style="text-align: right; font-weight:700; color:var(--cyan-accent);">₹91,000 / Pax</td>
+            <td style="text-align: right; font-weight:800; color:#0284c7;">₹91,000 / Pax</td>
           </tr>
           <tr>
-            <td><strong style="color:#ffffff;">Russian Tourist E-Visa</strong><br><span style="font-size:7pt; color:var(--text-muted);">Official visa processing fee</span></td>
+            <td><strong style="color:#0f172a;">Russian Tourist E-Visa</strong><br><span style="font-size:7pt; color:var(--text-muted);">Official visa processing fee</span></td>
             <td>Individual e-visa document</td>
             <td style="text-align: right; font-weight:600;">₹6,000 / Pax</td>
           </tr>
           <tr>
-            <td><strong style="color:#ffffff;">Sapsan High-Speed Bullet Train</strong><br><span style="font-size:7pt; color:var(--text-muted);">St Petersburg → Moscow express (250 km/h)</span></td>
+            <td><strong style="color:#0f172a;">Sapsan High-Speed Bullet Train</strong><br><span style="font-size:7pt; color:var(--text-muted);">St Petersburg → Moscow express (250 km/h)</span></td>
             <td>Reserved high-speed seat ticket</td>
             <td style="text-align: right; font-weight:600;">₹5,000 / Pax</td>
           </tr>
           <tr>
-            <td><strong style="color:#ffffff;">St Petersburg Canal Boat Ride</strong><br><span style="font-size:7pt; color:var(--text-muted);">Neva River & canal waterway cruise</span></td>
+            <td><strong style="color:#0f172a;">St Petersburg Canal Boat Ride</strong><br><span style="font-size:7pt; color:var(--text-muted);">Neva River & canal waterway cruise</span></td>
             <td>Individual boarding ticket</td>
             <td style="text-align: right; font-weight:600;">₹800 / Pax</td>
           </tr>
           <tr>
-            <td><strong style="color:#ffffff;">Sightseeing Entry Tickets</strong><br><span style="font-size:7pt; color:var(--text-muted);">Kremlin, Hermitage, Spilled Blood, St Isaac’s</span></td>
+            <td><strong style="color:#0f172a;">Sightseeing Entry Tickets</strong><br><span style="font-size:7pt; color:var(--text-muted);">Kremlin, Hermitage, Spilled Blood, St Isaac’s</span></td>
             <td>Museum entry budget</td>
             <td style="text-align: right; font-weight:600;">₹1,000 / Pax</td>
           </tr>
           <tr>
-            <td><strong style="color:#ffffff;">Murmansk Local Transport</strong><br><span style="font-size:7pt; color:var(--text-muted);">Yandex taxi budget</span></td>
+            <td><strong style="color:#0f172a;">Murmansk Local Transport</strong><br><span style="font-size:7pt; color:var(--text-muted);">Yandex taxi budget</span></td>
             <td>Local transport budget</td>
             <td style="text-align: right; font-weight:600;">₹300 / Pax</td>
           </tr>
           <tr>
-            <td><strong style="color:#ffffff;">Teriberka → Murmansk Airport Transfer</strong><br><span style="font-size:7pt; color:var(--text-muted);">Coastal snow road private transfer</span></td>
+            <td><strong style="color:#0f172a;">Teriberka → Murmansk Airport Transfer</strong><br><span style="font-size:7pt; color:var(--text-muted);">Coastal snow road private transfer</span></td>
             <td>Per person transfer share</td>
             <td style="text-align: right; font-weight:600;">₹3,000 / Pax</td>
           </tr>
           <tr>
-            <td><strong style="color:#ffffff;">Teriberka Arctic Gourmet Lunch</strong><br><span style="font-size:7pt; color:var(--text-muted);">Barents Sea fresh seafood dining</span></td>
+            <td><strong style="color:#0f172a;">Teriberka Arctic Gourmet Lunch</strong><br><span style="font-size:7pt; color:var(--text-muted);">Barents Sea fresh seafood dining</span></td>
             <td>Individual dining charge</td>
             <td style="text-align: right; font-weight:600;">₹1,500 / Pax</td>
           </tr>
           <tr>
-            <td><strong style="color:#ffffff;">Food & Dining Estimate</strong><br><span style="font-size:7pt; color:var(--text-muted);">Planning assumption: 3 meals/day × 9 days</span></td>
+            <td><strong style="color:#0f172a;">Food & Dining Estimate</strong><br><span style="font-size:7pt; color:var(--text-muted);">Planning assumption: 3 meals/day × 9 days</span></td>
             <td>₹600 / meal × 3 meals × 9 days</td>
             <td style="text-align: right; font-weight:600; color:var(--text-secondary);">₹16,200 / Pax</td>
           </tr>
           <tr>
-            <td><strong style="color:#ffffff;">Hotel Accommodation (7 Nights)</strong><br><span style="font-size:7pt; color:var(--text-muted);">Moscow (2N), Murmansk (2N), Teriberka (1N), St Petersburg (2N)</span></td>
+            <td><strong style="color:#0f172a;">Hotel Accommodation (7 Nights)</strong><br><span style="font-size:7pt; color:var(--text-muted);">Moscow (2N), Murmansk (2N), Teriberka (1N), St Petersburg (2N)</span></td>
             <td>Shared double room per person</td>
-            <td style="text-align: right; font-weight:700; color:var(--gold);">₹17,750 – ₹22,750 / Pax</td>
+            <td style="text-align: right; font-weight:800; color:#b45309;">₹17,750 – ₹22,750 / Pax</td>
           </tr>
-          <tr style="background: rgba(14,30,52,0.95); border-top: 2px solid var(--gold);">
-            <td><strong style="font-size:9.5pt; color:#ffffff;">TOTAL LAND INVESTMENT (PER PAX)</strong></td>
-            <td><strong style="color:var(--gold);">Low & High Bracket Range</strong></td>
-            <td style="text-align: right; font-size:10.5pt; font-weight:800; color:var(--gold);">₹1,42,550 – ₹1,47,550 / Pax</td>
+          <tr style="background: #f1f5f9; border-top: 2px solid #b45309;">
+            <td><strong style="font-size:9.5pt; color:#0f172a;">TOTAL LAND INVESTMENT (PER PAX)</strong></td>
+            <td><strong style="color:#b45309;">Low & High Bracket Range</strong></td>
+            <td style="text-align: right; font-size:10.5pt; font-weight:800; color:#b45309;">₹1,42,550 – ₹1,47,550 / Pax</td>
           </tr>
         </tbody>
       </table>
 
       <!-- Plus International Airfare Strip -->
-      <div style="background: rgba(16, 185, 129, 0.1); border: 1.5px solid #10b981; border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="background: #ecfdf5; border: 1.5px solid #10b981; border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
         <div>
-          <div style="font-size: 7.5pt; text-transform: uppercase; color: #a7f3d0; font-weight: 700;">Plus International Return Flights (Per Pax Cost)</div>
-          <div style="font-size: 11pt; font-weight: 800; color: #ffffff; margin-top: 2px;">
-            USD 532 <span style="font-size: 8pt; font-weight: 600; color: #6ee7b7;">PER PERSON (AZERBAIJAN AIRLINES)</span>
+          <div style="font-size: 7.5pt; text-transform: uppercase; color: #047857; font-weight: 700;">Plus International Return Flights (Per Pax Cost)</div>
+          <div style="font-size: 11pt; font-weight: 800; color: #065f46; margin-top: 2px;">
+            USD 532 <span style="font-size: 8pt; font-weight: 600; color: #059669;">PER PERSON (AZERBAIJAN AIRLINES)</span>
           </div>
         </div>
-        <div style="font-size: 7.5pt; color: #cbd5e1; text-align: right;">
+        <div style="font-size: 7.5pt; color: #334155; text-align: right;">
           India ⇄ Baku ⇄ Moscow<br>Cabin Baggage 10 kg Included
         </div>
       </div>
@@ -1847,7 +1786,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="page-body" style="gap: 12px;">
       <div>
         <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">Scope Clarity & Verification</div>
-        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           INCLUSIONS & EXCLUSIONS MATRIX
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary);">
@@ -1857,15 +1796,15 @@ const htmlContent = `<!DOCTYPE html>
 
       <div class="card-grid-2">
         <!-- Inclusions -->
-        <div style="background: rgba(16, 185, 129, 0.06); border: 1.5px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 14px;">
-          <div style="font-size: 9.5pt; font-weight: 800; color: #34d399; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+        <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 8px; padding: 14px;">
+          <div style="font-size: 9.5pt; font-weight: 800; color: #047857; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
             <span>✓</span> INCLUDED IN ₹91,000 / PAX PACKAGE
           </div>
-          <div style="font-size: 7.2pt; color: var(--text-muted); margin-bottom: 10px;">
+          <div style="font-size: 7.2pt; color: #065f46; margin-bottom: 10px; font-weight: 600;">
             (Base Expedition Package Services)
           </div>
 
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 7px; font-size: 7.6pt; color: #e2e8f0;">
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 7px; font-size: 7.6pt; color: #334155;">
             <li style="display:flex; align-items:center;"><span class="inc-badge">✓</span> Moscow → Murmansk domestic flight (Aeroflot SU-1322)</li>
             <li style="display:flex; align-items:center;"><span class="inc-badge">✓</span> Murmansk → St Petersburg domestic flight</li>
             <li style="display:flex; align-items:center;"><span class="inc-badge">✓</span> Siberian Husky Park entry & dog sledding safari</li>
@@ -1880,15 +1819,15 @@ const htmlContent = `<!DOCTYPE html>
         </div>
 
         <!-- Exclusions -->
-        <div style="background: rgba(239, 68, 68, 0.06); border: 1.5px solid rgba(239, 68, 68, 0.35); border-radius: 8px; padding: 14px;">
-          <div style="font-size: 9.5pt; font-weight: 800; color: #f87171; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+        <div style="background: #fef2f2; border: 1.5px solid #fecaca; border-radius: 8px; padding: 14px;">
+          <div style="font-size: 9.5pt; font-weight: 800; color: #b91c1c; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
             <span>✗</span> PAYABLE SEPARATELY (PER PAX)
           </div>
-          <div style="font-size: 7.2pt; color: var(--text-muted); margin-bottom: 10px;">
+          <div style="font-size: 7.2pt; color: #991b1b; margin-bottom: 10px; font-weight: 600;">
             (Direct Payments / Individual Arrangements)
           </div>
 
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 7.4pt; color: #e2e8f0;">
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 7.4pt; color: #334155;">
             <li style="display:flex; align-items:center;"><span class="exc-badge">✗</span> International return flights (USD 532 / Pax)</li>
             <li style="display:flex; align-items:center;"><span class="exc-badge">✗</span> Hotel accommodation 7 nights (₹17,750–₹22,750 / Pax)</li>
             <li style="display:flex; align-items:center;"><span class="exc-badge">✗</span> Russian tourist e-visa (₹6,000 / Pax)</li>
@@ -1904,8 +1843,8 @@ const htmlContent = `<!DOCTYPE html>
         </div>
       </div>
 
-      <div style="background: rgba(15, 29, 50, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 8px 12px; font-size: 7.3pt; color: #cbd5e1;">
-        <strong style="color: var(--gold);">Anti-Double-Counting Rule:</strong> Domestic flights and northern excursions are already bundled inside the ₹91,000 / Pax package.
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px; font-size: 7.3pt; color: #334155;">
+        <strong style="color: #b45309;">Anti-Double-Counting Rule:</strong> Domestic flights and northern excursions are already bundled inside the ₹91,000 / Pax package.
       </div>
     </div>
 
@@ -1929,7 +1868,7 @@ const htmlContent = `<!DOCTYPE html>
     <div class="page-body" style="gap: 12px;">
       <div>
         <div style="font-size: 8pt; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 2px;">Executive Travel Proposal</div>
-        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #ffffff; letter-spacing: 0.02em;">
+        <h2 class="font-serif" style="font-size: 22pt; font-weight: 800; color: #0f172a; letter-spacing: 0.02em;">
           FINAL PER PAX INVESTMENT SUMMARY
         </h2>
         <p style="font-size: 8.5pt; color: var(--text-secondary);">
@@ -1940,67 +1879,67 @@ const htmlContent = `<!DOCTYPE html>
       <!-- Main Investment Cards (Strictly Per Pax) -->
       <div class="card-grid-2">
         <!-- Land Investment -->
-        <div class="stat-hero">
-          <div style="font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); font-weight: 700;">TOTAL LAND COST / PAX</div>
-          <div style="font-size: 20pt; font-weight: 800; color: #ffffff; margin-top: 4px; font-family: 'JetBrains Mono', monospace;">
+        <div class="stat-hero" style="border-color: #d97706;">
+          <div style="font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.2em; color: #b45309; font-weight: 700;">TOTAL LAND COST / PAX</div>
+          <div style="font-size: 20pt; font-weight: 800; color: #0f172a; margin-top: 4px; font-family: 'JetBrains Mono', monospace;">
             ₹1,42,550 – ₹1,47,550
           </div>
-          <div style="font-size: 8pt; color: #cbd5e1; margin-top: 4px;">
+          <div style="font-size: 8pt; color: #475569; margin-top: 4px;">
             Comprehensive land cost per person including base package, hotels, visas, bullet train, transfers & meals.
           </div>
 
-          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 7.5pt; color: var(--text-muted); text-transform: uppercase;">Base Package Portion:</span>
-            <span style="font-size: 11pt; font-weight: 800; color: var(--cyan-accent);">₹91,000 / Person</span>
+          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 7.5pt; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Base Package Portion:</span>
+            <span style="font-size: 11pt; font-weight: 800; color: #0284c7;">₹91,000 / Person</span>
           </div>
         </div>
 
         <!-- Flight Investment -->
-        <div class="stat-hero" style="border-color: rgba(56, 189, 248, 0.4);">
-          <div style="font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.2em; color: var(--cyan-accent); font-weight: 700;">INTERNATIONAL FLIGHTS / PAX</div>
-          <div style="font-size: 20pt; font-weight: 800; color: #ffffff; margin-top: 4px; font-family: 'JetBrains Mono', monospace;">
-            USD 532 <span style="font-size: 10pt; color: #38bdf8;">/ PERSON</span>
+        <div class="stat-hero" style="border-color: #0284c7;">
+          <div style="font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.2em; color: #0284c7; font-weight: 700;">INTERNATIONAL FLIGHTS / PAX</div>
+          <div style="font-size: 20pt; font-weight: 800; color: #0f172a; margin-top: 4px; font-family: 'JetBrains Mono', monospace;">
+            USD 532 <span style="font-size: 10pt; color: #0284c7;">/ PERSON</span>
           </div>
-          <div style="font-size: 8pt; color: #cbd5e1; margin-top: 4px;">
+          <div style="font-size: 8pt; color: #475569; margin-top: 4px;">
             Azerbaijan Airlines return flights via Baku with 10 kg cabin baggage included per person.
           </div>
 
-          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 7.5pt; color: var(--text-muted); text-transform: uppercase;">Aviation Routing:</span>
-            <span style="font-size: 9.5pt; font-weight: 800; color: #10b981;">BOM ⇄ GYD ⇄ VKO</span>
+          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 7.5pt; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Aviation Routing:</span>
+            <span style="font-size: 9.5pt; font-weight: 800; color: #059669;">BOM ⇄ GYD ⇄ VKO</span>
           </div>
         </div>
       </div>
 
       <!-- Quick Summary Matrix -->
       <div class="glass-card" style="padding: 14px;">
-        <div style="font-size: 8.5pt; font-weight: 700; color: #ffffff; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em;">
+        <div style="font-size: 8.5pt; font-weight: 700; color: #0f172a; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em;">
           Expedition Reference Overview
         </div>
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; font-size: 7.5pt;">
           <div>
-            <div style="color: var(--text-muted);">Trip Name</div>
-            <div style="font-weight: 700; color: #ffffff; margin-top: 2px;">Russia Winter Adventure</div>
+            <div style="color: var(--text-muted); font-weight: 600;">Trip Name</div>
+            <div style="font-weight: 700; color: #0f172a; margin-top: 2px;">Russia Winter Adventure</div>
           </div>
           <div>
-            <div style="color: var(--text-muted);">Itinerary Circuit</div>
-            <div style="font-weight: 700; color: var(--cyan-accent); margin-top: 2px;">8-Day Active Flow</div>
+            <div style="color: var(--text-muted); font-weight: 600;">Itinerary Circuit</div>
+            <div style="font-weight: 700; color: #0284c7; margin-top: 2px;">8-Day Active Flow</div>
           </div>
           <div>
-            <div style="color: var(--text-muted);">Cost Framework</div>
-            <div style="font-weight: 700; color: var(--gold); margin-top: 2px;">Strictly Per Pax</div>
+            <div style="color: var(--text-muted); font-weight: 600;">Cost Framework</div>
+            <div style="font-weight: 700; color: #b45309; margin-top: 2px;">Strictly Per Pax</div>
           </div>
           <div>
-            <div style="color: var(--text-muted);">Airline Carrier</div>
-            <div style="font-weight: 700; color: #ffffff; margin-top: 2px;">Azerbaijan Airlines</div>
+            <div style="color: var(--text-muted); font-weight: 600;">Airline Carrier</div>
+            <div style="font-weight: 700; color: #0f172a; margin-top: 2px;">Azerbaijan Airlines</div>
           </div>
         </div>
       </div>
 
       <!-- Booking Next Steps -->
-      <div style="background: rgba(15, 29, 50, 0.75); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 12px 16px;">
-        <div style="font-size: 8.5pt; font-weight: 700; color: var(--gold); margin-bottom: 4px;">Confirmation Steps</div>
-        <div style="display: flex; gap: 20px; font-size: 7.4pt; color: #cbd5e1;">
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px;">
+        <div style="font-size: 8.5pt; font-weight: 700; color: #b45309; margin-bottom: 4px;">Confirmation Steps</div>
+        <div style="display: flex; gap: 20px; font-size: 7.4pt; color: #334155;">
           <div><strong>1. Flights:</strong> Confirm the USD 532 / Pax Azerbaijan Airlines fare.</div>
           <div><strong>2. Russia E-Visa:</strong> Process individual tourist e-visa (₹6,000 / Pax).</div>
           <div><strong>3. Hotels:</strong> Reserve boutique rooms in Moscow, Murmansk, Teriberka & St Petersburg.</div>
@@ -2018,13 +1957,13 @@ const htmlContent = `<!DOCTYPE html>
   <!-- ==========================================
        PAGE 15: BACK COVER
        ========================================== -->
-  <div class="page" id="page-15">
+  <div class="page" id="page-15" style="background-color: #0b1526;">
     <img src="assets/cover_aurora.jpg" class="hero-img-bg" alt="Northern Lights Murmansk Arctic Night">
     <div class="overlay-dark"></div>
 
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; text-align: center; padding: 0 24mm;">
       <!-- Monogram Emblem -->
-      <div style="width: 58px; height: 58px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 22pt; font-weight: 800; color: var(--gold); margin-bottom: 16px; box-shadow: 0 0 30px rgba(245,158,11,0.3);">
+      <div style="width: 58px; height: 58px; border: 2px solid #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 22pt; font-weight: 800; color: #ffffff; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
         N
       </div>
 
@@ -2032,32 +1971,32 @@ const htmlContent = `<!DOCTYPE html>
         NOMADLLER
       </div>
 
-      <div style="font-size: 8.5pt; letter-spacing: 0.3em; text-transform: uppercase; color: var(--cyan-accent); font-weight: 600; margin-bottom: 24px;">
+      <div style="font-size: 8.5pt; letter-spacing: 0.3em; text-transform: uppercase; color: #38bdf8; font-weight: 700; margin-bottom: 24px;">
         Curated Expeditions for the Modern Wanderer
       </div>
 
-      <div style="width: 60px; height: 1.5px; background: var(--gold-gradient); margin-bottom: 24px;"></div>
+      <div style="width: 60px; height: 2px; background: #0284c7; margin-bottom: 24px;"></div>
 
       <h3 class="font-serif" style="font-size: 16pt; font-weight: 700; color: #ffffff; letter-spacing: 0.08em; margin-bottom: 8px;">
         RUSSIA WINTER ADVENTURE
       </h3>
 
-      <p style="font-size: 8.5pt; color: #cbd5e1; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 30px;">
+      <p style="font-size: 8.5pt; color: #e2e8f0; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 30px;">
         Moscow • Murmansk • Teriberka • St Petersburg
       </p>
 
-      <!-- Concierge Details Card -->
-      <div style="background: rgba(6, 14, 26, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 16px 24px; width: 100%; max-width: 440px;">
-        <div style="font-size: 7pt; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 8px;">
+      <!-- Concierge Details Card (Clean White Floating Box) -->
+      <div style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.9); border-radius: 10px; padding: 18px 26px; width: 100%; max-width: 440px; box-shadow: 0 15px 35px rgba(0,0,0,0.25); text-align: left;">
+        <div style="font-size: 7.5pt; letter-spacing: 0.2em; text-transform: uppercase; color: #b45309; font-weight: 800; margin-bottom: 8px;">
           Private Expedition Concierge
         </div>
-        <div style="font-size: 8.5pt; color: #f1f5f9; line-height: 1.6;">
+        <div style="font-size: 8.5pt; color: #0f172a; line-height: 1.6;">
           <strong>Pricing Basis:</strong> Strictly Per Pax / Per Person<br>
           <strong>Land Cost / Pax:</strong> ₹1,42,550 – ₹1,47,550<br>
           <strong>International Flight / Pax:</strong> USD 532<br>
           <strong>Dossier Reference:</strong> NMD-RUS-PER-PAX
         </div>
-        <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 7pt; color: var(--text-muted); letter-spacing: 0.1em;">
+        <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 7pt; color: #64748b; letter-spacing: 0.1em; text-align: center;">
           NOMADLLER EXPEDITIONS • ALL RIGHTS RESERVED
         </div>
       </div>
@@ -2069,4 +2008,4 @@ const htmlContent = `<!DOCTYPE html>
 `;
 
 fs.writeFileSync('/Users/nomadller/ work no/brochure/brochure.html', htmlContent);
-console.log('Successfully wrote updated brochure.html with custom-designed flight cards!');
+console.log('Successfully wrote Nordic Minimalist brochure.html!');

@@ -1,17 +1,37 @@
-/* Brochure Stylesheet */
+/* ========================================================
+   NOMADLLER EXPEDITION — NORDIC MINIMALIST STYLESHEET
+   Clean Arctic Cool-White • Slate Tones • Subtle Icy-Blue Accents
+   ======================================================== */
+
 :root {
-  --bg-dark: #060d17;
-  --bg-card: rgba(13, 26, 44, 0.75);
-  --bg-card-border: rgba(56, 189, 248, 0.2);
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f1f5f9;
+  --bg-card-border: rgba(15, 23, 42, 0.08);
+  --border-subtle: #e2e8f0;
+  --border-frost: rgba(2, 132, 199, 0.18);
+  
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
   --text-muted: #64748b;
-  --gold: #f59e0b;
+  
+  --ice-accent: #0284c7;
+  --ice-hover: #0369a1;
+  --ice-light: #e0f2fe;
+  --ice-border: rgba(2, 132, 199, 0.25);
+  --ice-gradient: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  
+  --gold: #b45309;
   --gold-light: #fef3c7;
-  --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-  --cyan-accent: #38bdf8;
-  --aurora-gradient: linear-gradient(135deg, #10b981 0%, #06b6d4 50%, #8b5cf6 100%);
-  --frost-border: 1px solid rgba(255, 255, 255, 0.12);
+  --gold-gradient: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  
+  --cyan-accent: #0284c7;
+  --emerald-accent: #059669;
+  --emerald-light: #ecfdf5;
+  --emerald-border: #86efac;
+  
+  --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
 }
 
 @page {
@@ -29,7 +49,7 @@
 
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #0b1320;
+  background-color: #f1f5f9;
   color: var(--text-primary);
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
@@ -43,7 +63,7 @@ body {
   overflow: hidden;
   page-break-after: always;
   page-break-inside: avoid;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-page);
   display: flex;
   flex-direction: column;
 }
@@ -55,10 +75,10 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    background: #030712;
+    background: #e2e8f0;
   }
   .page {
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
     border-radius: 4px;
   }
 }
@@ -75,11 +95,11 @@ body {
 }
 
 .cyan-text {
-  color: var(--cyan-accent);
+  color: var(--ice-accent);
 }
 
 .aurora-text {
-  background: var(--aurora-gradient);
+  background: var(--ice-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -94,7 +114,7 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 10;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
   padding-bottom: 3.5mm;
 }
 
@@ -102,7 +122,7 @@ body {
   font-size: 8.5pt;
   letter-spacing: 0.28em;
   font-weight: 700;
-  color: #f1f5f9;
+  color: #0f172a;
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -110,16 +130,16 @@ body {
 }
 
 .brand-badge .diamond {
-  color: var(--gold);
+  color: var(--ice-accent);
   font-size: 7pt;
 }
 
 .page-category {
   font-size: 7.5pt;
   letter-spacing: 0.2em;
-  color: var(--cyan-accent);
+  color: var(--ice-accent);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .page-num {
@@ -138,7 +158,7 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 10;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
   padding-top: 3mm;
   font-size: 7pt;
   color: var(--text-muted);
@@ -147,6 +167,7 @@ body {
 
 .page-footer span.hl {
   color: var(--text-secondary);
+  font-weight: 600;
 }
 
 /* Common Content Container */
@@ -163,16 +184,22 @@ body {
 
 /* Cards & Glass Containers */
 .glass-panel {
-  background: rgba(15, 28, 48, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
 }
 
 .glass-card {
-  background: rgba(17, 34, 58, 0.82);
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 8px;
   padding: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+@media print {
+  * {
+    text-shadow: none !important;
+  }
 }

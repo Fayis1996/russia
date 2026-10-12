@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 async function generatePDF() {
-  console.log('Launching Chrome for PDF generation...');
+  console.log('Launching Chrome for PDF and Preview generation...');
   const browser = await puppeteer.launch({
     executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
     headless: 'new',
@@ -37,9 +37,9 @@ async function generatePDF() {
     const selectors = Array.from(document.querySelectorAll('img'));
     await Promise.all(selectors.map(img => {
       if (img.complete) return;
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         img.addEventListener('load', resolve);
-        img.addEventListener('error', resolve); // continue even if error
+        img.addEventListener('error', resolve);
       });
     }));
     await document.fonts.ready;
@@ -72,7 +72,26 @@ async function generatePDF() {
     console.warn('Could not copy to Downloads:', err.message);
   }
 
+  // Also update preview screenshots for web flipbook viewer
+  console.log('Generating preview screenshots for flipbook viewer...');
+  const previewDir = path.resolve(__dirname, 'preview');
+  if (!fs.existsSync(previewDir)) {
+    fs.mkdirSync(previewDir, { recursive: true });
+  }
+
+  const pageElements = await page.$$('.page');
+  for (let i = 0; i < pageElements.length; i++) {
+    const pageNumStr = String(i + 1).padStart(2, '0');
+    const previewFile = path.join(previewDir, `page_${pageNumStr}.png`);
+    await pageElements[i].screenshot({
+      path: previewFile,
+      omitBackground: false
+    });
+  }
+  console.log(`Rendered ${pageElements.length} preview pages into preview/ directory.`);
+
   await browser.close();
+  console.log('PDF & previews build complete!');
 }
 
 generatePDF().catch(err => {

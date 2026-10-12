@@ -1876,54 +1876,78 @@ const htmlContent = `<!DOCTYPE html>
         </p>
       </div>
 
-      <!-- Main Investment Cards (Strictly Per Pax) -->
+      <!-- Main Investment Cards (Option 1 vs Option 2 Per Pax) -->
       <div class="card-grid-2">
-        <!-- Land Investment -->
-        <div class="stat-hero" style="border-color: #d97706;">
-          <div style="font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.2em; color: #b45309; font-weight: 700;">TOTAL LAND COST / PAX</div>
-          <div style="font-size: 20pt; font-weight: 800; color: #0f172a; margin-top: 4px; font-family: 'JetBrains Mono', monospace;">
+        <!-- Option 1: 8D Full Circuit -->
+        <div class="stat-hero" style="border-color: #d97706; padding: 12px 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.15em; color: #b45309; font-weight: 800;">OPTION 1 • FULL CIRCUIT (8D / 7N)</span>
+            <span style="font-size: 6.8pt; background: #fef3c7; color: #b45309; font-weight: 700; padding: 2px 6px; border-radius: 4px;">4 CITIES</span>
+          </div>
+          <div style="font-size: 16pt; font-weight: 800; color: #0f172a; margin-top: 4px; font-family: 'JetBrains Mono', monospace;">
             ₹1,42,550 – ₹1,47,550
           </div>
-          <div style="font-size: 8pt; color: #475569; margin-top: 4px;">
-            Comprehensive land cost per person including base package, hotels, visas, bullet train, transfers & meals.
+          <div style="font-size: 7.4pt; color: #475569; margin-top: 2px;">
+            Total Land / Pax (Base Pkg ₹91,000 + 7N Hotels + Sapsan + Transfers + Visa + Meals)
           </div>
 
-          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 7.5pt; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Base Package Portion:</span>
-            <span style="font-size: 11pt; font-weight: 800; color: #0284c7;">₹91,000 / Person</span>
+          <div style="margin-top: 8px; padding-top: 6px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; font-size: 7.2pt;">
+            <span style="color: var(--text-muted); font-weight: 600;">Coverage:</span>
+            <span style="font-weight: 700; color: #0f172a;">Moscow • Murmansk • Teriberka • St Petersburg</span>
           </div>
         </div>
 
-        <!-- Flight Investment -->
-        <div class="stat-hero" style="border-color: #0284c7;">
-          <div style="font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.2em; color: #0284c7; font-weight: 700;">INTERNATIONAL FLIGHTS / PAX</div>
-          <div style="font-size: 20pt; font-weight: 800; color: #0f172a; margin-top: 4px; font-family: 'JetBrains Mono', monospace;">
-            USD 532 <span style="font-size: 10pt; color: #0284c7;">/ PERSON</span>
+        <!-- Option 2: 5D Murmansk Only -->
+        <div class="stat-hero" style="border-color: #0284c7; padding: 12px 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 7.2pt; text-transform: uppercase; letter-spacing: 0.15em; color: #0284c7; font-weight: 800;">OPTION 2 • MURMANSK FOCUS (5D / 4N)</span>
+            <span style="font-size: 6.8pt; background: #e0f2fe; color: #0284c7; font-weight: 700; padding: 2px 6px; border-radius: 4px;">ARCTIC FOCUS</span>
           </div>
-          <div style="font-size: 8pt; color: #475569; margin-top: 4px;">
-            Azerbaijan Airlines return flights via Baku with 10 kg cabin baggage included per person.
+          <div style="font-size: 16pt; font-weight: 800; color: #0f172a; margin-top: 4px; font-family: 'JetBrains Mono', monospace;">
+            ₹98,200 – ₹1,03,200
+          </div>
+          <div style="font-size: 7.4pt; color: #475569; margin-top: 2px;">
+            Total Land / Pax (Base Pkg ₹68,000 + 4N Hotels + Teriberka + Visa + Meals)
           </div>
 
-          <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 7.5pt; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Aviation Routing:</span>
-            <span style="font-size: 9.5pt; font-weight: 800; color: #059669;">BOM ⇄ GYD ⇄ VKO</span>
+          <div style="margin-top: 8px; padding-top: 6px; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; font-size: 7.2pt;">
+            <span style="color: var(--text-muted); font-weight: 600;">Coverage:</span>
+            <span style="font-weight: 700; color: #0f172a;">Moscow Arrival • Murmansk • Husky • Teriberka</span>
           </div>
         </div>
       </div>
 
+      <!-- Shared International Airfare & Visa Banner -->
+      <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div style="font-size: 7pt; text-transform: uppercase; letter-spacing: 0.15em; color: #047857; font-weight: 700;">INTERNATIONAL FLIGHTS (PER PERSON — BOTH OPTIONS)</div>
+          <div style="font-size: 12pt; font-weight: 800; color: #065f46; margin-top: 2px;">
+            USD 532 <span style="font-size: 8pt; color: #059669; font-weight: 600;">(~₹44,500) • Azerbaijan Airlines via Baku</span>
+          </div>
+          <div style="font-size: 7.2pt; color: #64748b; margin-top: 2px;">
+            BOM ⇄ GYD ⇄ VKO • 10 kg Cabin Baggage Included • Return flights apply to both 8D & 5D circuits.
+          </div>
+        </div>
+        <div style="text-align: right; border-left: 1px solid #e2e8f0; padding-left: 16px;">
+          <div style="font-size: 6.8pt; text-transform: uppercase; color: #64748b; font-weight: 600;">Russian Tourist E-Visa</div>
+          <div style="font-size: 10.5pt; font-weight: 800; color: #0f172a;">₹6,000 / Pax</div>
+          <div style="font-size: 6.8pt; color: #059669; font-weight: 600;">Direct Govt Portal</div>
+        </div>
+      </div>
+
       <!-- Quick Summary Matrix -->
-      <div class="glass-card" style="padding: 14px;">
-        <div style="font-size: 8.5pt; font-weight: 700; color: #0f172a; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.08em;">
+      <div class="glass-card" style="padding: 12px 14px;">
+        <div style="font-size: 8pt; font-weight: 700; color: #0f172a; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;">
           Expedition Reference Overview
         </div>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; font-size: 7.5pt;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 7.2pt;">
           <div>
-            <div style="color: var(--text-muted); font-weight: 600;">Trip Name</div>
-            <div style="font-weight: 700; color: #0f172a; margin-top: 2px;">Russia Winter Adventure</div>
+            <div style="color: var(--text-muted); font-weight: 600;">Trip Choice</div>
+            <div style="font-weight: 700; color: #0f172a; margin-top: 2px;">8D Full vs 5D Murmansk</div>
           </div>
           <div>
-            <div style="color: var(--text-muted); font-weight: 600;">Itinerary Circuit</div>
-            <div style="font-weight: 700; color: #0284c7; margin-top: 2px;">8-Day Active Flow</div>
+            <div style="color: var(--text-muted); font-weight: 600;">Base Package</div>
+            <div style="font-weight: 700; color: #0284c7; margin-top: 2px;">₹91k (8D) / ₹68k (5D)</div>
           </div>
           <div>
             <div style="color: var(--text-muted); font-weight: 600;">Cost Framework</div>
@@ -1937,12 +1961,12 @@ const htmlContent = `<!DOCTYPE html>
       </div>
 
       <!-- Booking Next Steps -->
-      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px;">
-        <div style="font-size: 8.5pt; font-weight: 700; color: #b45309; margin-bottom: 4px;">Confirmation Steps</div>
-        <div style="display: flex; gap: 20px; font-size: 7.4pt; color: #334155;">
-          <div><strong>1. Flights:</strong> Confirm the USD 532 / Pax Azerbaijan Airlines fare.</div>
-          <div><strong>2. Russia E-Visa:</strong> Process individual tourist e-visa (₹6,000 / Pax).</div>
-          <div><strong>3. Hotels:</strong> Reserve boutique rooms in Moscow, Murmansk, Teriberka & St Petersburg.</div>
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px;">
+        <div style="font-size: 8pt; font-weight: 700; color: #b45309; margin-bottom: 3px;">Confirmation Steps</div>
+        <div style="display: flex; gap: 16px; font-size: 7.2pt; color: #334155;">
+          <div><strong>1. Choose Option:</strong> Select 8-Day Full Circuit or 5-Day Murmansk Only.</div>
+          <div><strong>2. Flights:</strong> Confirm the USD 532 / Pax Azerbaijan Airlines fare.</div>
+          <div><strong>3. E-Visa:</strong> Process individual tourist e-visa (₹6,000 / Pax).</div>
         </div>
       </div>
     </div>

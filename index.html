@@ -238,6 +238,85 @@
       font-weight: 600;
     }
 
+    /* Circuit Switcher (Option 1: 8D Full vs Option 2: 5D Murmansk) */
+    .circuit-switch-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 22px;
+      z-index: 10;
+      position: relative;
+    }
+    .circuit-switch {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      border-radius: 40px;
+      padding: 5px;
+      display: inline-flex;
+      gap: 6px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+    .circuit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: none;
+      background: transparent;
+      color: #cbd5e1;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 8.5pt;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .circuit-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .circuit-btn.active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+    .circuit-btn .circuit-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #64748b;
+      transition: background 0.25s;
+    }
+    .circuit-btn.active .circuit-dot {
+      background: #0284c7;
+    }
+    .circuit-sub-pill {
+      font-size: 7pt;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: rgba(2, 132, 199, 0.15);
+      color: #0284c7;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .circuit-btn:not(.active) .circuit-sub-pill {
+      background: rgba(255, 255, 255, 0.12);
+      color: #94a3b8;
+    }
+
+    /* Circuit visibility toggles */
+    body[data-circuit="5d"] .circuit-8d-only,
+    body[data-circuit="5d"] .route-card-8d-only {
+      display: none !important;
+    }
+    body[data-circuit="8d"] .circuit-5d-only {
+      display: none !important;
+    }
+
     section[id] {
       scroll-margin-top: 80px;
     }
@@ -810,6 +889,22 @@
         min-height: auto;
         padding: 85px 16px 45px;
       }
+      .circuit-switch {
+        width: 100%;
+        max-width: 360px;
+        padding: 4px;
+        gap: 4px;
+      }
+      .circuit-btn {
+        flex: 1;
+        padding: 8px 8px;
+        font-size: 7.5pt;
+        justify-content: center;
+        gap: 5px;
+      }
+      .circuit-sub-pill {
+        display: none;
+      }
       .hero-badge {
         font-size: 7pt;
         letter-spacing: 0.12em;
@@ -1000,7 +1095,7 @@
     }
   </style>
 </head>
-<body>
+<body data-circuit="8d">
 
   <!-- Navigation Bar -->
   <header>
@@ -1010,7 +1105,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#brochure-viewer">Brochure Dossier</a></li>
-      <li><a href="#route-flow">8-Day Itinerary</a></li>
+      <li><a href="#route-flow">Trip Itinerary</a></li>
       <li><a href="#flights">Flight Tickets</a></li>
       <li><a href="#pricing">Per Pax Investment</a></li>
     </ul>
@@ -1028,11 +1123,28 @@
     <img src="assets/cover_aurora.jpg" class="hero-bg" alt="Russia Aurora Borealis">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge">★ PRIVATE DOSSIER • ALL COSTS SHOWN PER PAX</div>
-      <h1 class="hero-title serif">
+      <div class="hero-badge" id="hero-badge">★ PRIVATE DOSSIER • ALL COSTS SHOWN PER PAX</div>
+
+      <!-- Interactive Circuit Selector (Option 1 vs Option 2) -->
+      <div class="circuit-switch-wrapper">
+        <div class="circuit-switch">
+          <button class="circuit-btn active" id="btn-circuit-8d" onclick="switchCircuit('8d')">
+            <span class="circuit-dot"></span>
+            Full Circuit (8D / 7N)
+            <span class="circuit-sub-pill">All-Inclusive</span>
+          </button>
+          <button class="circuit-btn" id="btn-circuit-5d" onclick="switchCircuit('5d')">
+            <span class="circuit-dot"></span>
+            Murmansk Only (5D / 4N)
+            <span class="circuit-sub-pill">Arctic Focus</span>
+          </button>
+        </div>
+      </div>
+
+      <h1 class="hero-title serif" id="hero-title">
         RUSSIA WINTER<br><span style="color: #38bdf8;">ADVENTURE</span>
       </h1>
-      <p class="hero-sub">Moscow • Murmansk • Teriberka • St Petersburg</p>
+      <p class="hero-sub" id="hero-sub">Moscow • Murmansk • Teriberka • St Petersburg</p>
       
       <div class="hero-cta-group">
         <a href="nomadller-russia-winter-adventure.pdf" download class="btn-download" style="padding: 12px 28px; font-size: 9.5pt;">
@@ -1045,20 +1157,20 @@
 
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="val">8 DAYS</div>
-          <div class="lbl">Core Circuit</div>
+          <div class="val" id="stat-days-val">8 DAYS</div>
+          <div class="lbl" id="stat-days-lbl">Core Circuit</div>
         </div>
         <div class="stat-item">
-          <div class="val" style="color: #b45309;">₹1,42,550+</div>
-          <div class="lbl">Total Land / Pax</div>
+          <div class="val" id="stat-land-val" style="color: #b45309;">₹1,42,550+</div>
+          <div class="lbl" id="stat-land-lbl">Total Land / Pax</div>
         </div>
         <div class="stat-item">
-          <div class="val" style="color: #0284c7;">USD 532</div>
-          <div class="lbl">Flights / Pax</div>
+          <div class="val" id="stat-flight-val" style="color: #0284c7;">USD 532</div>
+          <div class="lbl" id="stat-flight-lbl">Flights / Pax</div>
         </div>
         <div class="stat-item">
-          <div class="val" style="color: #059669;">₹91,000</div>
-          <div class="lbl">Base Pkg / Pax</div>
+          <div class="val" id="stat-base-val" style="color: #059669;">₹91,000</div>
+          <div class="lbl" id="stat-base-lbl">Base Pkg / Pax</div>
         </div>
       </div>
     </div>
@@ -1098,9 +1210,9 @@
   <!-- Route Flow Section -->
   <section class="container" id="route-flow">
     <div class="section-head">
-      <div class="section-tag">Day-by-Day Expedition Flow</div>
-      <h2 class="section-title serif">THE 8-DAY ITINERARY</h2>
-      <p class="section-desc">Tailored day-by-day sequence from arrival in Moscow through Murmansk, Teriberka, St Petersburg, and Sapsan return.</p>
+      <div class="section-tag" id="route-section-tag">Day-by-Day Expedition Flow</div>
+      <h2 class="section-title serif" id="route-section-title">THE 8-DAY ITINERARY</h2>
+      <p class="section-desc" id="route-section-desc">Tailored day-by-day sequence from arrival in Moscow through Murmansk, Teriberka, St Petersburg, and Sapsan return.</p>
     </div>
 
     <div class="route-grid">
@@ -1140,16 +1252,16 @@
         </p>
       </div>
 
-      <div class="route-card">
+      <div class="route-card" id="day-5-card">
         <div class="route-step-badge">5</div>
-        <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 5: TERIBERKA TO AIRPORT → FLY TO ST PETERSBURG</h3>
-        <p style="font-size: 0.8rem; color: #b45309; font-weight: 700;">Stay at St Petersburg</p>
-        <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
+        <h3 class="serif" id="day-5-title" style="font-size: 1.05rem; color: #0f172a;">DAY 5: TERIBERKA TO AIRPORT → FLY TO ST PETERSBURG</h3>
+        <p class="route-stay-lbl" id="day-5-stay" style="font-size: 0.8rem; color: #b45309; font-weight: 700;">Stay at St Petersburg</p>
+        <p class="route-desc" id="day-5-desc" style="font-size: 0.82rem; color: var(--text-muted); margin-top: 8px;">
           Transfer to Murmansk airport (₹3,000/pax), domestic flight to St Petersburg (included), canal walk & boat ride.
         </p>
       </div>
 
-      <div class="route-card">
+      <div class="route-card route-card-8d-only">
         <div class="route-step-badge">6</div>
         <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 6: ST PETERSBURG SIGHTSEEING & STAY</h3>
         <p style="font-size: 0.8rem; color: #b45309; font-weight: 700;">Stay at St Petersburg</p>
@@ -1158,7 +1270,7 @@
         </p>
       </div>
 
-      <div class="route-card">
+      <div class="route-card route-card-8d-only">
         <div class="route-step-badge">7</div>
         <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 7: SAPSAN TO MOSCOW • SHOPPING & PURCHASES</h3>
         <p style="font-size: 0.8rem; color: #7c3aed; font-weight: 700;">Stay at Moscow</p>
@@ -1167,7 +1279,7 @@
         </p>
       </div>
 
-      <div class="route-card">
+      <div class="route-card route-card-8d-only">
         <div class="route-step-badge">8</div>
         <h3 class="serif" style="font-size: 1.05rem; color: #0f172a;">DAY 8: DEPARTURE FLIGHT TO INDIA</h3>
         <p style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">In Flight / Homeward</p>
@@ -1466,20 +1578,36 @@
   <!-- Complete Investment Section (Strictly Per Pax) -->
   <section class="container" id="pricing">
     <div class="section-head">
-      <div class="section-tag">Financial Ledger (Per Pax)</div>
-      <h2 class="section-title serif">COMPLETE PER PAX INVESTMENT</h2>
-      <p class="section-desc">Transparent per-passenger cost breakdown for each component of the expedition.</p>
+      <div class="section-tag" id="pricing-tag">Financial Ledger (Per Pax)</div>
+      <h2 class="section-title serif" id="pricing-title">COMPLETE PER PAX INVESTMENT</h2>
+      <p class="section-desc" id="pricing-desc">Transparent per-passenger cost breakdown for each component of the expedition.</p>
+    </div>
+
+    <!-- Circuit Selector in Pricing Section -->
+    <div class="circuit-switch-wrapper" style="margin-bottom: 24px;">
+      <div class="circuit-switch" style="background: #ffffff; border-color: #cbd5e1; box-shadow: 0 4px 18px rgba(15,23,42,0.06);">
+        <button class="circuit-btn active" id="btn-pricing-8d" onclick="switchCircuit('8d')">
+          <span class="circuit-dot"></span>
+          Full Circuit (8D / 7N)
+          <span class="circuit-sub-pill">₹1,42,550+</span>
+        </button>
+        <button class="circuit-btn" id="btn-pricing-5d" onclick="switchCircuit('5d')">
+          <span class="circuit-dot"></span>
+          Murmansk Only (5D / 4N)
+          <span class="circuit-sub-pill">₹98,200+</span>
+        </button>
+      </div>
     </div>
 
     <div class="calc-card">
       <div class="pricing-hero-nums">
         <div>
           <div style="font-size: 8pt; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 700;">TOTAL LAND COST / PAX</div>
-          <div class="mono" style="font-size: 1.8rem; font-weight: 800; color: #0f172a; margin-top: 6px;">
+          <div class="mono" id="pricing-land-val" style="font-size: 1.8rem; font-weight: 800; color: #0f172a; margin-top: 6px;">
             ₹1,42,550 – ₹1,47,550
           </div>
-          <div style="font-size: 8pt; color: var(--text-muted); margin-top: 4px;">
-            Complete land package, visas, hotels, bullet train, transfers & meals
+          <div id="pricing-land-desc" style="font-size: 8pt; color: var(--text-muted); margin-top: 4px;">
+            Complete land package, visas, hotels (7N), bullet train, transfers & meals
           </div>
         </div>
 
@@ -1494,8 +1622,8 @@
         </div>
       </div>
 
-      <!-- Desktop Itemized Table (Strictly Per Pax) -->
-      <div class="pricing-table-desktop">
+      <!-- 1. FULL CIRCUIT (8D / 7N) DESKTOP TABLE -->
+      <div class="pricing-table-desktop circuit-8d-only" id="pricing-table-8d">
         <table style="width: 100%; border-collapse: collapse; font-size: 8.5pt;">
           <thead>
             <tr style="border-bottom: 2px solid #cbd5e1; background: #f1f5f9; color: #0f172a; text-align: left;">
@@ -1549,8 +1677,63 @@
         </table>
       </div>
 
-      <!-- Mobile Ledger Cards (Zero cut-off, Touch Optimized) -->
-      <div class="pricing-cards-mobile">
+      <!-- 2. MURMANSK ONLY (5D / 4N) DESKTOP TABLE -->
+      <div class="pricing-table-desktop circuit-5d-only" id="pricing-table-5d">
+        <table style="width: 100%; border-collapse: collapse; font-size: 8.5pt;">
+          <thead>
+            <tr style="border-bottom: 2px solid #cbd5e1; background: #f0f9ff; color: #0f172a; text-align: left;">
+              <th style="padding: 12px 14px; font-weight: 700;">Item / Component</th>
+              <th style="padding: 12px 14px; font-weight: 700;">Scope & Inclusions (Murmansk Arctic Focus)</th>
+              <th style="padding: 12px 14px; text-align: right; font-weight: 700;">Cost Per Person</th>
+            </tr>
+          </thead>
+          <tbody style="color: #334155;">
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Murmansk Arctic Base Package</strong></td>
+              <td style="padding: 12px 14px;">Return domestic flights (Moscow ⇄ Murmansk), Husky/Reindeer sleds, Sami lunch, Teriberka Arctic drive</td>
+              <td style="padding: 12px 14px; text-align: right; color: var(--ice); font-weight: 800;">₹68,000 / Pax</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Hotel Accommodations (4 Nights Share)</strong></td>
+              <td style="padding: 12px 14px;">Moscow (1N), Murmansk (2N), Teriberka (1N) — twin share basis</td>
+              <td style="padding: 12px 14px; text-align: right; color: var(--gold); font-weight: 800;">₹10,500 – ₹13,500 / Pax</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Russian Tourist E-Visa</strong></td>
+              <td style="padding: 12px 14px;">Official Russian government e-visa fee</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹6,000 / Pax</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Teriberka → Airport Transfer Share</strong></td>
+              <td style="padding: 12px 14px;">Private snow road transfer share to Murmansk airport</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹3,000 / Pax</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Teriberka Arctic Gourmet Lunch</strong></td>
+              <td style="padding: 12px 14px;">Fresh Barents Sea seafood dining experience</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹1,500 / Pax</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #fafafa;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Food & Dining Planning Budget</strong></td>
+              <td style="padding: 12px 14px;">Planning guideline: ₹600/meal × 3 meals × 5 days</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹9,000 / Pax</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <td style="padding: 12px 14px;"><strong style="color: #0f172a;">Sightseeing & Yandex Local Taxi</strong></td>
+              <td style="padding: 12px 14px;">Lenin Nuclear Icebreaker museum ticket & Murmansk/Moscow Yandex taxi share</td>
+              <td style="padding: 12px 14px; text-align: right; font-weight: 600;">₹700 / Pax</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+              <td style="padding: 12px 14px; color: #64748b; font-style: italic;">St Petersburg Leg & Sapsan Train</td>
+              <td style="padding: 12px 14px; color: #64748b; font-style: italic;">Skipped in 5-day Murmansk Express Option (saves ₹20,000+ per pax)</td>
+              <td style="padding: 12px 14px; text-align: right; color: #94a3b8; font-weight: 700;">₹0 (Excluded)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 1. FULL CIRCUIT (8D) MOBILE CARDS -->
+      <div class="pricing-cards-mobile circuit-8d-only" id="pricing-cards-8d">
         <div class="pricing-card-item">
           <div class="pci-top">
             <span class="pci-title">Main Russia Base Package</span>
@@ -1616,6 +1799,65 @@
         </div>
       </div>
 
+      <!-- 2. MURMANSK ONLY (5D) MOBILE CARDS -->
+      <div class="pricing-cards-mobile circuit-5d-only" id="pricing-cards-5d">
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Murmansk Arctic Base Package</span>
+            <span class="pci-price ice">₹68,000</span>
+          </div>
+          <div class="pci-desc">Return domestic flights (Moscow ⇄ Murmansk), Husky/Reindeer sleds, Sami lunch, Teriberka drive.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Hotel Accommodations (4N Share)</span>
+            <span class="pci-price gold">₹10,500 – ₹13,500</span>
+          </div>
+          <div class="pci-desc">Moscow (1N), Murmansk (2N), Teriberka (1N) — twin share basis.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Russian Tourist E-Visa</span>
+            <span class="pci-price neutral">₹6,000</span>
+          </div>
+          <div class="pci-desc">Official Russian government e-visa fee.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Teriberka → Airport Transfer Share</span>
+            <span class="pci-price neutral">₹3,000</span>
+          </div>
+          <div class="pci-desc">Private snow road transfer share to Murmansk airport.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Teriberka Arctic Gourmet Lunch</span>
+            <span class="pci-price neutral">₹1,500</span>
+          </div>
+          <div class="pci-desc">Fresh Barents Sea seafood dining experience.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Food & Dining Planning Budget</span>
+            <span class="pci-price neutral">₹9,000</span>
+          </div>
+          <div class="pci-desc">Planning guideline: ₹600/meal × 3 meals × 5 days.</div>
+        </div>
+
+        <div class="pricing-card-item">
+          <div class="pci-top">
+            <span class="pci-title">Sightseeing & Yandex Local Taxi</span>
+            <span class="pci-price neutral">₹700</span>
+          </div>
+          <div class="pci-desc">Lenin Icebreaker entry & Murmansk/Moscow local taxi transfers.</div>
+        </div>
+      </div>
+
       <div style="text-align: center; margin-top: 32px;">
         <a href="nomadller-russia-winter-adventure.pdf" download class="btn-download" style="padding: 14px 32px; font-size: 10pt;">
           Download Full 15-Page Dossier (PDF)
@@ -1640,6 +1882,96 @@
   </footer>
 
   <script>
+    // Circuit Switching Logic (8D Full Circuit vs 5D Murmansk Only)
+    function switchCircuit(type) {
+      const is5d = (type === '5d');
+      document.body.setAttribute('data-circuit', is5d ? '5d' : '8d');
+
+      // Update Hero Switcher Buttons
+      const btnHero8d = document.getElementById('btn-circuit-8d');
+      const btnHero5d = document.getElementById('btn-circuit-5d');
+      if (btnHero8d && btnHero5d) {
+        btnHero8d.classList.toggle('active', !is5d);
+        btnHero5d.classList.toggle('active', is5d);
+      }
+
+      // Update Pricing Switcher Buttons
+      const btnPricing8d = document.getElementById('btn-pricing-8d');
+      const btnPricing5d = document.getElementById('btn-pricing-5d');
+      if (btnPricing8d && btnPricing5d) {
+        btnPricing8d.classList.toggle('active', !is5d);
+        btnPricing5d.classList.toggle('active', is5d);
+      }
+
+      // Update Hero Header & Stats
+      const heroBadge = document.getElementById('hero-badge');
+      const heroTitle = document.getElementById('hero-title');
+      const heroSub = document.getElementById('hero-sub');
+      const statDaysVal = document.getElementById('stat-days-val');
+      const statDaysLbl = document.getElementById('stat-days-lbl');
+      const statLandVal = document.getElementById('stat-land-val');
+      const statBaseVal = document.getElementById('stat-base-val');
+
+      if (is5d) {
+        if (heroBadge) heroBadge.innerText = '★ PRIVATE DOSSIER • 5-DAY MURMANSK FOCUS • ALL COSTS PER PAX';
+        if (heroTitle) heroTitle.innerHTML = 'RUSSIA ARCTIC<br><span style="color: #38bdf8;">EXPEDITION</span>';
+        if (heroSub) heroSub.innerText = 'Moscow • Murmansk • Husky Park • Teriberka (Arctic Focus)';
+        if (statDaysVal) statDaysVal.innerText = '5 DAYS';
+        if (statDaysLbl) statDaysLbl.innerText = 'Murmansk Focus';
+        if (statLandVal) statLandVal.innerText = '₹98,200+';
+        if (statBaseVal) statBaseVal.innerText = '₹68,000';
+      } else {
+        if (heroBadge) heroBadge.innerText = '★ PRIVATE DOSSIER • ALL COSTS SHOWN PER PAX';
+        if (heroTitle) heroTitle.innerHTML = 'RUSSIA WINTER<br><span style="color: #38bdf8;">ADVENTURE</span>';
+        if (heroSub) heroSub.innerText = 'Moscow • Murmansk • Teriberka • St Petersburg';
+        if (statDaysVal) statDaysVal.innerText = '8 DAYS';
+        if (statDaysLbl) statDaysLbl.innerText = 'Core Circuit';
+        if (statLandVal) statLandVal.innerText = '₹1,42,550+';
+        if (statBaseVal) statBaseVal.innerText = '₹91,000';
+      }
+
+      // Update Itinerary Section
+      const routeSectionTitle = document.getElementById('route-section-title');
+      if (routeSectionTitle) {
+        routeSectionTitle.innerText = is5d ? 'THE 5-DAY ARCTIC ITINERARY (MOSCOW & MURMANSK ONLY)' : 'THE 8-DAY ITINERARY';
+      }
+
+      const day5Title = document.getElementById('day-5-title');
+      const day5Stay = document.getElementById('day-5-stay');
+      const day5Desc = document.getElementById('day-5-desc');
+
+      if (is5d) {
+        if (day5Title) day5Title.innerText = 'DAY 5: FLY BACK TO MOSCOW • DEPARTURE TO INDIA';
+        if (day5Stay) {
+          day5Stay.innerText = 'In Flight / Homeward Departure';
+          day5Stay.style.color = '#0284c7';
+        }
+        if (day5Desc) day5Desc.innerText = 'Transfer from Teriberka to Murmansk Airport (share ₹3,000/pax), domestic flight to Moscow, international connection back to India via Baku.';
+      } else {
+        if (day5Title) day5Title.innerText = 'DAY 5: TERIBERKA TO AIRPORT → FLY TO ST PETERSBURG';
+        if (day5Stay) {
+          day5Stay.innerText = 'Stay at St Petersburg';
+          day5Stay.style.color = '#b45309';
+        }
+        if (day5Desc) day5Desc.innerText = 'Transfer to Murmansk airport (₹3,000/pax), domestic flight to St Petersburg (included), canal walk & boat ride.';
+      }
+
+      // Update Pricing Section Totals
+      const pricingTitle = document.getElementById('pricing-title');
+      const pricingLandVal = document.getElementById('pricing-land-val');
+      const pricingLandDesc = document.getElementById('pricing-land-desc');
+
+      if (is5d) {
+        if (pricingTitle) pricingTitle.innerText = '5-DAY MURMANSK ONLY — PER PAX INVESTMENT';
+        if (pricingLandVal) pricingLandVal.innerText = '₹98,200 – ₹1,03,200';
+        if (pricingLandDesc) pricingLandDesc.innerText = 'Complete land package, visas, hotels (4N), Arctic transfers, activities & meals';
+      } else {
+        if (pricingTitle) pricingTitle.innerText = 'COMPLETE PER PAX INVESTMENT (8-DAY CIRCUIT)';
+        if (pricingLandVal) pricingLandVal.innerText = '₹1,42,550 – ₹1,47,550';
+        if (pricingLandDesc) pricingLandDesc.innerText = 'Complete land package, visas, hotels (7N), bullet train, transfers & meals';
+      }
+    }
+
     const totalPages = 15;
     let currentPage = 1;
 
